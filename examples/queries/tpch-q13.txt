@@ -1,0 +1,9 @@
+SELECT c_count, count(*) as custdist
+FROM (
+    SELECT c_custkey, count(o_orderkey)
+    FROM customer left outer join orders ON
+      c_custkey = o_custkey
+      AND o_comment = 'word'
+    GROUP BY c_custkey) as c_orders(c_custkey, c_count)
+GROUP BY c_count
+ORDER BY custdist DESC, c_count DESC

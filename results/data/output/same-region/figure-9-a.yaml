@@ -1,0 +1,33 @@
+---
+experimentName: "Join"
+experimentTag: figure-8-a
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 10000 
+  - 20000 
+  - 30000 
+  - 40000 
+  - 60000 
+  - 80000
+  - 100000
+experiments:
+  - EMP:
+    - {excutable: EMP               , inputOne: 1093.14         , inputTwo: 1091.63           , inputThree: 1092.97       }
+    - {excutable: EMP               , inputOne: 6507.42         , inputTwo: 6506.31           , inputThree: 6508.05       }
+    - {excutable: EMP               , inputOne: 20186.6         , inputTwo: 20173.1           , inputThree: 20197.9       }
+    - {excutable: EMP               , inputOne: 39396.2         , inputTwo: 39411.4           , inputThree: 39377.5      }
+    # - {excutable: EMP               , inputOne: 9150.1          , inputTwo: 9157.007          , inputThree: 9141.843      }
+    # - {excutable: EMP               , inputOne: 16295.8         , inputTwo: 16292.105         , inputThree: 16267.146     }
+    # - {excutable: EMP               , inputOne: 25434.8         , inputTwo: 25423.381         , inputThree: 25481.764     }
+  - Secrecy:
+    - {excutable: exp-join-batched  , inputOne: 135.540         , inputTwo: 134.777           , inputThree: 134.888       }
+    - {excutable: exp-join-batched  , inputOne: 541.761         , inputTwo: 538.190           , inputThree: 538.302       }
+    - {excutable: exp-join-batched  , inputOne: 1217.501        , inputTwo: 1217.003          , inputThree: 1211.075      }
+    - {excutable: exp-join-batched  , inputOne: 2154.372        , inputTwo: 2157.222          , inputThree: 2149.666      }
+    - {excutable: exp-join-batched  , inputOne: 4841.605        , inputTwo: 4837.099          , inputThree: 4834.781      }
+    - {excutable: exp-join-batched  , inputOne: 8594.524        , inputTwo: 8591.510          , inputThree: 8595.106      }
+    - {excutable: exp-join-batched  , inputOne: 13459.128       , inputTwo: 13440.473         , inputThree: 13449.687     }

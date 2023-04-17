@@ -1,0 +1,4 @@
+# B, B, B
+lineitem(l_orderkey, l_commitdate, l_receiptdate)
+# B, B, B
+orders(o_orderkey, o_orderpriority, o_orderdate)

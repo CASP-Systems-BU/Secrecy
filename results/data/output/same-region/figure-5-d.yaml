@@ -1,0 +1,54 @@
+---
+experimentName: "group by"
+experimentTag: figure-9-d
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 1024
+  - 2048
+  - 4096
+  - 8192
+  - 16384
+  - 32768
+  - 65536
+  - 131072
+  - 262144
+  - 524288
+  - 1048576
+  - 2097152
+  - 4194304
+  - 8388608
+experiments:
+  - baseline:
+    - {excutable: exp-group-by-baseline             , inputOne: 0.252         , inputTwo: 0.248         , inputThree: 0.248           }
+    - {excutable: exp-group-by-baseline             , inputOne: 0.415         , inputTwo: 0.42          , inputThree: 0.396           }
+    - {excutable: exp-group-by-baseline             , inputOne: 0.928         , inputTwo: 0.92          , inputThree: 0.873           }
+    - {excutable: exp-group-by-baseline             , inputOne: 1.722         , inputTwo: 1.723         , inputThree: 1.661           }
+    - {excutable: exp-group-by-baseline             , inputOne: 3.796         , inputTwo: 3.796         , inputThree: 3.609           }
+    - {excutable: exp-group-by-baseline             , inputOne: 7.558         , inputTwo: 7.618         , inputThree: 7.166           }
+    - {excutable: exp-group-by-baseline             , inputOne: 15.612        , inputTwo: 16.048        , inputThree: 14.722          }
+    - {excutable: exp-group-by-baseline             , inputOne: 32.803        , inputTwo: 33.471        , inputThree: 30.892          }
+    - {excutable: exp-group-by-baseline             , inputOne: 68.927        , inputTwo: 68.948        , inputThree: 69.708          }
+    - {excutable: exp-group-by-baseline             , inputOne: 148.019       , inputTwo: 144.487       , inputThree: 140.648         }
+    - {excutable: exp-group-by-baseline             , inputOne: 300.443       , inputTwo: 297.805       , inputThree: 296.607         }
+    - {excutable: exp-group-by-baseline             , inputOne: 640.084       , inputTwo: 634.011       , inputThree: 613.431         }
+    - {excutable: exp-group-by-baseline             , inputOne: 1332.25       , inputTwo: 1337.631      , inputThree: 1285.088        }
+    - {excutable: exp-group-by-baseline             , inputOne: 2768.619      , inputTwo: 2751.067      , inputThree: 2729.019        }
+  - optimized:
+    - {excutable: exp-group-by                      , inputOne: 0.053         , inputTwo: 0.052         , inputThree: 0.049           }
+    - {excutable: exp-group-by                      , inputOne: 0.101         , inputTwo: 0.089         , inputThree: 0.091           }
+    - {excutable: exp-group-by                      , inputOne: 0.175         , inputTwo: 0.176         , inputThree: 0.169           }
+    - {excutable: exp-group-by                      , inputOne: 0.35          , inputTwo: 0.35          , inputThree: 0.341           }
+    - {excutable: exp-group-by                      , inputOne: 0.72          , inputTwo: 0.723         , inputThree: 0.792           }
+    - {excutable: exp-group-by                      , inputOne: 1.479         , inputTwo: 1.529         , inputThree: 1.497           }
+    - {excutable: exp-group-by                      , inputOne: 3.125         , inputTwo: 3.191         , inputThree: 3.135           }
+    - {excutable: exp-group-by                      , inputOne: 6.486         , inputTwo: 6.606         , inputThree: 6.57            }
+    - {excutable: exp-group-by                      , inputOne: 13.748        , inputTwo: 14.114        , inputThree: 14.218          }
+    - {excutable: exp-group-by                      , inputOne: 28.734        , inputTwo: 29.323        , inputThree: 28.856          }
+    - {excutable: exp-group-by                      , inputOne: 60.931        , inputTwo: 61.157        , inputThree: 61.696          }
+    - {excutable: exp-group-by                      , inputOne: 127.89        , inputTwo: 128.642       , inputThree: 127.304         }
+    - {excutable: exp-group-by                      , inputOne: 267.08        , inputTwo: 270.969       , inputThree: 268.129         }
+    - {excutable: exp-group-by                      , inputOne: 560.16        , inputTwo: 566.331       , inputThree: 561.953         }

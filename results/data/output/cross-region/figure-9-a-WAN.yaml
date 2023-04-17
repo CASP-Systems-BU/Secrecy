@@ -1,0 +1,35 @@
+---
+experimentName: "Join - WAN"
+experimentTag: figure-8-a
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 10000 
+  - 20000 
+  - 30000 
+  - 40000 
+  - 60000 
+  - 80000
+  - 100000
+experiments:
+  - EMP:
+    - {excutable: EMP               , inputOne: 13029.5         , inputTwo: 13048.3           , inputThree: 13021.5       }
+    # 2nd and 3rd points are approximate
+    - {excutable: EMP               , inputOne: 52324.5         , inputTwo: 52324.5           , inputThree: 52324.5       }
+    # - {excutable: EMP               , inputOne: 0               , inputTwo: 0                 , inputThree: 0             }
+    # - {excutable: EMP               , inputOne: 0               , inputTwo: 0                 , inputThree: 0             }
+    # - {excutable: EMP               , inputOne: 0               , inputTwo: 0                 , inputThree: 0             }
+    # - {excutable: EMP               , inputOne: 0               , inputTwo: 0                 , inputThree: 0             }
+    # - {excutable: EMP               , inputOne: 0               , inputTwo: 0                 , inputThree: 0             }
+  - Secrecy:
+  # OLD EQUALITY
+    - {excutable: exp-join-batched  , inputOne: 403.411         , inputTwo: 403.085           , inputThree: 403.072       }
+    - {excutable: exp-join-batched  , inputOne: 1620.159        , inputTwo: 1612.847          , inputThree: 1613.255      }
+    - {excutable: exp-join-batched  , inputOne: 3628.934        , inputTwo: 3619.474          , inputThree: 3739.443      }
+    - {excutable: exp-join-batched  , inputOne: 6394.324        , inputTwo: 6430.305          , inputThree: 6416.672      }
+    - {excutable: exp-join-batched  , inputOne: 14588.135       , inputTwo: 14597.352         , inputThree: 14516.416     }
+    - {excutable: exp-join-batched  , inputOne: 26185.043       , inputTwo: 25917.385         , inputThree: 25754.611     }
+    - {excutable: exp-join-batched  , inputOne: 40459.454       , inputTwo: 40329.372         , inputThree: 41718.157     }

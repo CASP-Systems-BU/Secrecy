@@ -1,0 +1,3 @@
+SELECT DISTINCT R.id
+FROM R
+WHERE R.ak = 5

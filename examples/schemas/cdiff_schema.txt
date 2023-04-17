@@ -1,0 +1,2 @@
+# B, B, B, B
+diagnosis(pid,diag,visit_time,row_no)

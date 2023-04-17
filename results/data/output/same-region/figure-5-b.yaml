@@ -1,0 +1,40 @@
+---
+experimentName: "groupby join"
+experimentTag: figure-9-b
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 32   
+  - 64   
+  - 128  
+  - 256  
+  - 512  
+  - 1024 
+  - 2048 
+  - 4096 
+  - 8192 
+  - 16384
+  - 32768
+experiments:
+  - baseline:
+    - {excutable: exp-group-by-join-naive       , inputOne: 0.662           , inputTwo: 0.7             , inputThree: 0.711         }
+    - {excutable: exp-group-by-join-naive       , inputOne: 1.856           , inputTwo: 1.853           , inputThree: 1.963         }
+    - {excutable: exp-group-by-join-naive       , inputOne: 5.439           , inputTwo: 5.739           , inputThree: 5.89          }
+    - {excutable: exp-group-by-join-naive       , inputOne: 19.205          , inputTwo: 20.169          , inputThree: 19.997        }
+    - {excutable: exp-group-by-join-naive       , inputOne: 74.749          , inputTwo: 75.664          , inputThree: 77.795        }
+    - {excutable: exp-group-by-join-naive       , inputOne: 306.794         , inputTwo: 318.768         , inputThree: 313.045       }
+  - optimized :
+    - {excutable: exp-group-by-join-opt         , inputOne: 0.023           , inputTwo: 0.023           , inputThree: 0.026         }
+    - {excutable: exp-group-by-join-opt         , inputOne: 0.034           , inputTwo: 0.036           , inputThree: 0.043         }
+    - {excutable: exp-group-by-join-opt         , inputOne: 0.064           , inputTwo: 0.065           , inputThree: 0.083         }
+    - {excutable: exp-group-by-join-opt         , inputOne: 0.155           , inputTwo: 0.159           , inputThree: 0.165         }
+    - {excutable: exp-group-by-join-opt         , inputOne: 0.474           , inputTwo: 0.47            , inputThree: 0.484         }
+    - {excutable: exp-group-by-join-opt         , inputOne: 1.610           , inputTwo: 1.633           , inputThree: 1.64          }
+    - {excutable: exp-group-by-join-opt         , inputOne: 6.076           , inputTwo: 6.119           , inputThree: 6.131         }
+    - {excutable: exp-group-by-join-opt         , inputOne: 23.629          , inputTwo: 23.905          , inputThree: 23.671        }
+    - {excutable: exp-group-by-join-opt         , inputOne: 93.861          , inputTwo: 93.476          , inputThree: 93.515        }
+    - {excutable: exp-group-by-join-opt         , inputOne: 370.213         , inputTwo: 371.104         , inputThree: 370.514       }
+    - {excutable: exp-group-by-join-opt         , inputOne: 1479.850        , inputTwo: 1476.764        , inputThree: 1480.727      }

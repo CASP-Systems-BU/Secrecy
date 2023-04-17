@@ -1,0 +1,34 @@
+---
+experimentName: "Category B (WAN)"
+experimentTag: figure-7-b-WAN
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 32768  
+  - 131072 
+  - 524288 
+  - 2097152
+experiments:
+  - Password Reuse:
+    - {excutable: exp-qpwd          , inputOne: 158.561         , inputTwo: 159.017             , inputThree: 158.426         }
+    - {excutable: exp-qpwd          , inputOne: 268.906         , inputTwo: 267.388             , inputThree: 272.939         }
+    - {excutable: exp-qpwd          , inputOne: 903.145         , inputTwo: 894.494             , inputThree: 911.741         }
+    - {excutable: exp-qpwd          , inputOne: 3792.100        , inputTwo: 3805.958            , inputThree: 3824.207        }
+  - Credit Score:
+    - {excutable: exp-qcredit       , inputOne: 166.110         , inputTwo: 172.048             , inputThree: 168.809         }
+    - {excutable: exp-qcredit       , inputOne: 305.054         , inputTwo: 308.193             , inputThree: 310.737         }
+    - {excutable: exp-qcredit       , inputOne: 1032.378        , inputTwo: 1047.808            , inputThree: 1066.408        }
+    - {excutable: exp-qcredit       , inputOne: 4513.395        , inputTwo: 4474.560            , inputThree: 4431.542        }
+  - Comorbidity:
+    - {excutable: exp-q1            , inputOne: 208.076         , inputTwo: 209.940             , inputThree: 206.435         }
+    - {excutable: exp-q1            , inputOne: 438.914         , inputTwo: 448.455             , inputThree: 449.690         }
+    - {excutable: exp-q1            , inputOne: 1584.922        , inputTwo: 1564.355            , inputThree: 1591.241        }
+    - {excutable: exp-q1            , inputOne: 6526.193        , inputTwo: 6458.551            , inputThree: 6515.437        }
+  - Rec. C. Diff:
+    - {excutable: exp-q2            , inputOne: 349.699         , inputTwo: 351.375              , inputThree: 349.667          }
+    - {excutable: exp-q2            , inputOne: 645.605         , inputTwo: 637.361              , inputThree: 640.663          }
+    - {excutable: exp-q2            , inputOne: 2003.227        , inputTwo: 1974.353             , inputThree: 2033.008         }
+    - {excutable: exp-q2            , inputOne: 8720.163        , inputTwo: 8637.918             , inputThree: 8599.660         }

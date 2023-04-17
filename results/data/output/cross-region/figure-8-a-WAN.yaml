@@ -1,0 +1,45 @@
+---
+experimentName: "Unary operators (WAN)"
+experimentTag: figure-10-1-WAN
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 65536
+  - 131072   
+  - 262144
+  - 524288   
+  - 1048576   
+  - 2097152
+  - 4194304
+  - 8388608 
+experiments:
+  - distinct:
+    - {excutable: exp-distinct          , inputOne: 1.291         , inputTwo: 1.095         , inputThree: 1.093           }
+    - {excutable: exp-distinct          , inputOne: 1.464         , inputTwo: 1.458         , inputThree: 1.457           }
+    - {excutable: exp-distinct          , inputOne: 2.108         , inputTwo: 1.935         , inputThree: 2.149           }
+    - {excutable: exp-distinct          , inputOne: 2.943         , inputTwo: 2.878         , inputThree: 3.132           }
+    - {excutable: exp-distinct          , inputOne: 5.489         , inputTwo: 5.420         , inputThree: 5.429           }
+    - {excutable: exp-distinct          , inputOne: 9.959         , inputTwo: 10.256        , inputThree: 10.032          }
+    - {excutable: exp-distinct          , inputOne: 19.446        , inputTwo: 19.900        , inputThree: 19.403          }
+    - {excutable: exp-distinct          , inputOne: 38.322        , inputTwo: 40.512        , inputThree: 38.537          }
+  - groupby:
+    - {excutable: exp-group-by          , inputOne: 24.788        , inputTwo: 25.093        , inputThree: 24.804          }
+    - {excutable: exp-group-by          , inputOne: 29.826        , inputTwo: 30.011        , inputThree: 29.283          }
+    - {excutable: exp-group-by          , inputOne: 42.230        , inputTwo: 42.613        , inputThree: 41.759          }
+    - {excutable: exp-group-by          , inputOne: 80.827        , inputTwo: 80.955        , inputThree: 79.696          }
+    - {excutable: exp-group-by          , inputOne: 156.172       , inputTwo: 155.047       , inputThree: 157.540         }
+    - {excutable: exp-group-by          , inputOne: 308.405       , inputTwo: 314.541       , inputThree: 309.428         }
+    - {excutable: exp-group-by          , inputOne: 640.694       , inputTwo: 629.060       , inputThree: 653.904         }
+    - {excutable: exp-group-by          , inputOne: 1245.903      , inputTwo: 1254.225      , inputThree: 1249.424        }
+  - order-by:
+    - {excutable: exp-order-by          , inputOne: 81.784        , inputTwo: 81.53         , inputThree: 81.529           }
+    - {excutable: exp-order-by          , inputOne: 98.768        , inputTwo: 94.907        , inputThree: 98.591           }
+    - {excutable: exp-order-by          , inputOne: 153.713       , inputTwo: 153.399       , inputThree: 153.755          }
+    - {excutable: exp-order-by          , inputOne: 300.828       , inputTwo: 300.828       , inputThree: 296.087          }
+    - {excutable: exp-order-by          , inputOne: 554.030       , inputTwo: 568.666       , inputThree: 574.309          }
+    - {excutable: exp-order-by          , inputOne: 1188.829      , inputTwo: 1188.829      , inputThree: 1200.236         }
+    - {excutable: exp-order-by          , inputOne: 2557.853      , inputTwo: 2557.853      , inputThree: 2539.707         }
+    - {excutable: exp-order-by          , inputOne: 5580.466      , inputTwo: 5525.993      , inputThree: 5529.037         }

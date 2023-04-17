@@ -1,0 +1,4 @@
+# B
+customer(c_custkey)
+# B, B, B
+orders(o_custkey, o_orderkey, o_comment)

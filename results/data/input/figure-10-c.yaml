@@ -1,0 +1,49 @@
+---
+experimentName: "Join"
+experimentTag: figure-10-c
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 1024   
+  - 2048   
+  - 4096   
+  - 8192   
+  - 16384  
+  - 32768  
+  - 65536  
+  - 131072 
+  - 262144 
+  - 524288 
+  - 1048576
+experiments:
+  - leftfixed:
+    - {excutable: exp-join-batched  , inputOne: 1024        , inputTwo: 1024          , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 1024        , inputTwo: 2048          , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 1024        , inputTwo: 4096          , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 1024        , inputTwo: 8192          , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 1024        , inputTwo: 16384         , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 1024        , inputTwo: 32768         , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 1024        , inputTwo: 65536         , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 1024        , inputTwo: 131072        , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 1024        , inputTwo: 262144        , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 1024        , inputTwo: 524288        , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 1024        , inputTwo: 1048576       , inputThree: 1024      }
+  - rightfixed:
+    - {excutable: exp-join-batched  , inputOne: 1024        , inputTwo: 1024          , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 2048        , inputTwo: 1024          , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 4096        , inputTwo: 1024          , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 8192        , inputTwo: 1024          , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 16384       , inputTwo: 1024          , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 32768       , inputTwo: 1024          , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 65536       , inputTwo: 1024          , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 131072      , inputTwo: 1024          , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 262144      , inputTwo: 1024          , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 524288      , inputTwo: 1024          , inputThree: 1024      }
+    - {excutable: exp-join-batched  , inputOne: 1048576     , inputTwo: 1024          , inputThree: 1024      }
+    
+
+
+    

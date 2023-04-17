@@ -1,0 +1,34 @@
+---
+experimentName: "Join"
+experimentTag: figure-11-a
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 1000    
+  - 10000   
+  - 100000  
+  - 1000000 
+  - 10000000
+experiments:
+  - Addition:
+    - {excutable: exp-rca       , inputOne: 1000            , inputTwo:               , inputThree:           }
+    - {excutable: exp-rca       , inputOne: 10000           , inputTwo:               , inputThree:           }
+    - {excutable: exp-rca       , inputOne: 100000          , inputTwo:               , inputThree:           }
+    - {excutable: exp-rca       , inputOne: 1000000         , inputTwo:               , inputThree:           }
+    - {excutable: exp-rca       , inputOne: 10000000        , inputTwo:               , inputThree:           }
+  - Equality:
+    - {excutable: exp-equality  , inputOne: 1000            , inputTwo:               , inputThree:           }
+    - {excutable: exp-equality  , inputOne: 10000           , inputTwo:               , inputThree:           }
+    - {excutable: exp-equality  , inputOne: 100000          , inputTwo:               , inputThree:           }
+    - {excutable: exp-equality  , inputOne: 1000000         , inputTwo:               , inputThree:           }
+    - {excutable: exp-equality  , inputOne: 10000000        , inputTwo:               , inputThree:           }
+  - Inequality:
+    - {excutable: exp-greater   , inputOne: 1000            , inputTwo:               , inputThree:           }
+    - {excutable: exp-greater   , inputOne: 10000           , inputTwo:               , inputThree:           }
+    - {excutable: exp-greater   , inputOne: 100000          , inputTwo:               , inputThree:           }
+    - {excutable: exp-greater   , inputOne: 1000000         , inputTwo:               , inputThree:           }
+    - {excutable: exp-greater   , inputOne: 10000000        , inputTwo:               , inputThree:           }
+  

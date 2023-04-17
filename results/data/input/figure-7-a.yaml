@@ -1,0 +1,21 @@
+---
+experimentName: "Category A"
+experimentTag: figure-7-a
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 32768  
+  - 131072 
+  - 524288 
+  - 2097152
+  - 8388608
+experiments:
+  - exp-tpch-q6:
+    - {excutable: exp-tpch-q6         , inputOne: 32768       , inputTwo:               , inputThree:           }
+    - {excutable: exp-tpch-q6         , inputOne: 131072      , inputTwo:               , inputThree:           }
+    - {excutable: exp-tpch-q6         , inputOne: 524288      , inputTwo:               , inputThree:           }
+    - {excutable: exp-tpch-q6         , inputOne: 2097152     , inputTwo:               , inputThree:           }
+    - {excutable: exp-tpch-q6         , inputOne: 8388608     , inputTwo:               , inputThree:           }

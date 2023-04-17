@@ -1,0 +1,70 @@
+---
+experimentName: "Semi Join"
+experimentTag: figure-10-c-WAN
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 1024   
+  - 2048   
+  - 4096   
+  - 8192   
+  - 16384  
+  - 32768  
+  - 65536  
+  - 131072 
+  - 262144 
+  - 524288 
+  - 1048576
+experiments:
+# OLD EQUALITY
+  - leftfixed:
+    - {excutable: exp-join-batched  , inputOne: 2.684       , inputTwo: 2.720       , inputThree: 2.684         }
+    - {excutable: exp-join-batched  , inputOne: 5.417       , inputTwo: 5.353       , inputThree: 5.366         }
+    - {excutable: exp-join-batched  , inputOne: 10.750      , inputTwo: 10.705      , inputThree: 10.697        }
+    - {excutable: exp-join-batched  , inputOne: 21.441      , inputTwo: 21.539      , inputThree: 21.383        }
+    - {excutable: exp-join-batched  , inputOne: 42.889      , inputTwo: 42.927      , inputThree: 43.411        }
+    - {excutable: exp-join-batched  , inputOne: 85.710      , inputTwo: 86.167      , inputThree: 85.817        }
+    - {excutable: exp-join-batched  , inputOne: 171.008     , inputTwo: 171.470     , inputThree: 171.622       }
+    - {excutable: exp-join-batched  , inputOne: 344.008     , inputTwo: 344.383     , inputThree: 343.204       }
+    - {excutable: exp-join-batched  , inputOne: 685.299     , inputTwo: 683.679     , inputThree: 686.356       }
+    - {excutable: exp-join-batched  , inputOne: 1371.030    , inputTwo: 1369.127    , inputThree: 1373.816      }
+    - {excutable: exp-join-batched  , inputOne: 2739.745    , inputTwo: 2737.846    , inputThree: 2753.882      }
+  - leftfixed-WAN:
+    - {excutable: exp-join-batched  , inputOne: 5.015       , inputTwo: 5.040       , inputThree: 5.196         }
+    - {excutable: exp-join-batched  , inputOne: 9.756       , inputTwo: 9.550       , inputThree: 9.732         }
+    - {excutable: exp-join-batched  , inputOne: 18.857      , inputTwo: 8.798       , inputThree: 18.828        }
+    - {excutable: exp-join-batched  , inputOne: 36.846      , inputTwo: 37.109      , inputThree: 37.597        }
+    - {excutable: exp-join-batched  , inputOne: 73.827      , inputTwo: 78.470      , inputThree: 74.248        }
+    - {excutable: exp-join-batched  , inputOne: 147.205     , inputTwo: 145.930     , inputThree: 147.990       }
+    - {excutable: exp-join-batched  , inputOne: 291.942     , inputTwo: 296.553     , inputThree: 300.049       }
+    - {excutable: exp-join-batched  , inputOne: 588.976     , inputTwo: 602.345     , inputThree: 605.739       }
+    - {excutable: exp-join-batched  , inputOne: 1203.143    , inputTwo: 1202.122    , inputThree: 1238.417      }
+    - {excutable: exp-join-batched  , inputOne: 2360.630    , inputTwo: 2356.041    , inputThree: 2407.353      }
+    - {excutable: exp-join-batched  , inputOne: 4808.814    , inputTwo: 4801.949    , inputThree: 4818.554      }
+  - rightfixed:
+    - {excutable: exp-join-batched  , inputOne: 2.7         , inputTwo: 2.7         , inputThree: 2.7           }
+    - {excutable: exp-join-batched  , inputOne: 5.4         , inputTwo: 5.4         , inputThree: 5.4           }
+    - {excutable: exp-join-batched  , inputOne: 10.8        , inputTwo: 10.7        , inputThree: 10.7          }
+    - {excutable: exp-join-batched  , inputOne: 21.4        , inputTwo: 21.4        , inputThree: 21.5          }
+    - {excutable: exp-join-batched  , inputOne: 43.5        , inputTwo: 42.9        , inputThree: 42.8          }
+    - {excutable: exp-join-batched  , inputOne: 85.6        , inputTwo: 85.5        , inputThree: 85.8          }
+    - {excutable: exp-join-batched  , inputOne: 171.3       , inputTwo: 171.4       , inputThree: 171.1         }
+    - {excutable: exp-join-batched  , inputOne: 342.1       , inputTwo: 343.8       , inputThree: 342.3         }
+    - {excutable: exp-join-batched  , inputOne: 683.8       , inputTwo: 684.5       , inputThree: 684.0         }
+    - {excutable: exp-join-batched  , inputOne: 1368.1      , inputTwo: 1374.4      , inputThree: 1371.8        }
+    - {excutable: exp-join-batched  , inputOne: 2735.6      , inputTwo: 2741.5      , inputThree: 2778.8        }
+  - rightfixed-WAN:
+    - {excutable: exp-join-batched  , inputOne: 4.978       , inputTwo: 5.027       , inputThree: 5.097         }
+    - {excutable: exp-join-batched  , inputOne: 9.469       , inputTwo: 9.319       , inputThree: 9.333         }
+    - {excutable: exp-join-batched  , inputOne: 18.269      , inputTwo: 18.022      , inputThree: 18.078        }
+    - {excutable: exp-join-batched  , inputOne: 35.430      , inputTwo: 35.211      , inputThree: 34.971        }
+    - {excutable: exp-join-batched  , inputOne: 68.489      , inputTwo: 69.162      , inputThree: 68.899        }
+    - {excutable: exp-join-batched  , inputOne: 136.204     , inputTwo: 135.717     , inputThree: 136.216       }
+    - {excutable: exp-join-batched  , inputOne: 270.777     , inputTwo: 269.072     , inputThree: 274.177       }
+    - {excutable: exp-join-batched  , inputOne: 539.738     , inputTwo: 540.298     , inputThree: 541.138       }
+    - {excutable: exp-join-batched  , inputOne: 1077.292    , inputTwo: 1071.354    , inputThree: 1074.741      }
+    - {excutable: exp-join-batched  , inputOne: 2131.963    , inputTwo: 2151.363    , inputThree: 2145.636      }
+    - {excutable: exp-join-batched  , inputOne: 4299.927    , inputTwo: 4299.927    , inputThree: 4280.397      }

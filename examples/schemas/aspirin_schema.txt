@@ -1,0 +1,4 @@
+# B, B, B
+diagnosis(pid, diag, visit_time)
+# B, B, B
+medication(pid, med, visit_time)

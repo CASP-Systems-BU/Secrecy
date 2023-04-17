@@ -1,0 +1,41 @@
+---
+experimentName: "distinct join (WAN)"
+experimentTag: figure-9-a-WAN
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 32   
+  - 64   
+  - 128  
+  - 256  
+  - 512  
+  - 1024 
+  - 2048 
+  - 4096 
+  - 8192 
+  - 16384
+  - 32768
+experiments:
+  - baseline:
+    - {excutable: exp-join-distinct-naive       , inputOne: 10.798          , inputTwo: 10.943            , inputThree: 10.61           }
+    - {excutable: exp-join-distinct-naive       , inputOne: 17.448          , inputTwo: 15.199            , inputThree: 14.979          }
+    - {excutable: exp-join-distinct-naive       , inputOne: 37.023          , inputTwo: 34.211            , inputThree: 34.377          }
+    - {excutable: exp-join-distinct-naive       , inputOne: 90.207          , inputTwo: 83.191            , inputThree: 82.732          }
+    - {excutable: exp-join-distinct-naive       , inputOne: 210.636         , inputTwo: 178.748           , inputThree: 183.316         }
+    - {excutable: exp-join-distinct-naive       , inputOne: 939.595         , inputTwo: 735.946           , inputThree: 708.624         }
+    - {excutable: exp-join-distinct-naive       , inputOne: 3401.369        , inputTwo: 3406.016          , inputThree: 3401.369        }
+  - optimized:
+    - {excutable: exp-join-distinct-opt         , inputOne: 3.333           , inputTwo: 3.2               , inputThree: 3.146           }
+    - {excutable: exp-join-distinct-opt         , inputOne: 5.145           , inputTwo: 4.496             , inputThree: 4.53            }
+    - {excutable: exp-join-distinct-opt         , inputOne: 7.557           , inputTwo: 6.391             , inputThree: 6.378           }
+    - {excutable: exp-join-distinct-opt         , inputOne: 10.051          , inputTwo: 8.174             , inputThree: 8.141           }
+    - {excutable: exp-join-distinct-opt         , inputOne: 12.979          , inputTwo: 11.376            , inputThree: 11.448          }
+    - {excutable: exp-join-distinct-opt         , inputOne: 19.258          , inputTwo: 19.092            , inputThree: 19.21           }
+    - {excutable: exp-join-distinct-opt         , inputOne: 50.621          , inputTwo: 46.365            , inputThree: 46.35           }
+    - {excutable: exp-join-distinct-opt         , inputOne: 154.340         , inputTwo: 150.885           , inputThree: 146.632         }
+    - {excutable: exp-join-distinct-opt         , inputOne: 579.975         , inputTwo: 576.241           , inputThree: 574.254         }
+    - {excutable: exp-join-distinct-opt         , inputOne: 2414.753        , inputTwo: 2268.547          , inputThree: 1944.671        }
+    - {excutable: exp-join-distinct-opt         , inputOne: 8101.650        , inputTwo: 9675.575          , inputThree: 8087.229        }

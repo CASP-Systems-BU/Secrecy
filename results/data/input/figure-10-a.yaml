@@ -1,0 +1,41 @@
+---
+experimentName: "Unary operators"
+experimentTag: figure-10-1
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 1024   
+  - 8192   
+  - 32768   
+  - 131072   
+  - 524288   
+  - 1048576   
+  - 8388608   
+experiments:
+  - distinct:
+    - {excutable: exp-distinct              , inputOne: 1024        , inputTwo:               , inputThree:           }
+    - {excutable: exp-distinct              , inputOne: 8192        , inputTwo:               , inputThree:           }
+    - {excutable: exp-distinct              , inputOne: 32768       , inputTwo:               , inputThree:           }
+    - {excutable: exp-distinct              , inputOne: 131072      , inputTwo:               , inputThree:           }
+    - {excutable: exp-distinct              , inputOne: 524288      , inputTwo:               , inputThree:           }
+    - {excutable: exp-distinct              , inputOne: 1048576     , inputTwo:               , inputThree:           }
+    - {excutable: exp-distinct              , inputOne: 8388608     , inputTwo:               , inputThree:           }
+  - groupby:
+    - {excutable: exp-group-by-sel          , inputOne: 1024        , inputTwo: 512           , inputThree:           }
+    - {excutable: exp-group-by-sel          , inputOne: 8192        , inputTwo: 4096          , inputThree:           }
+    - {excutable: exp-group-by-sel          , inputOne: 32768       , inputTwo: 16384         , inputThree:           }
+    - {excutable: exp-group-by-sel          , inputOne: 131072      , inputTwo: 65536         , inputThree:           }
+    - {excutable: exp-group-by-sel          , inputOne: 524288      , inputTwo: 262144        , inputThree:           }
+    - {excutable: exp-group-by-sel          , inputOne: 1048576     , inputTwo: 524288        , inputThree:           }
+    - {excutable: exp-group-by-sel          , inputOne: 8388608     , inputTwo: 4194304       , inputThree:           }
+  - order-by:
+    - {excutable: exp-order-by              , inputOne: 1024        , inputTwo: 1             , inputThree: 1         }
+    - {excutable: exp-order-by              , inputOne: 8192        , inputTwo: 1             , inputThree: 1         }
+    - {excutable: exp-order-by              , inputOne: 32768       , inputTwo: 1             , inputThree: 1         }
+    - {excutable: exp-order-by              , inputOne: 131072      , inputTwo: 1             , inputThree: 1         }
+    - {excutable: exp-order-by              , inputOne: 524288      , inputTwo: 1             , inputThree: 1         }
+    - {excutable: exp-order-by              , inputOne: 1048576     , inputTwo: 1             , inputThree: 1         }
+    - {excutable: exp-order-by              , inputOne: 8388608     , inputTwo: 1             , inputThree: 1         }

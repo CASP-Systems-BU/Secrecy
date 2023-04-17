@@ -1,0 +1,31 @@
+---
+experimentName: "Semi Join"
+experimentTag: figure-11-a
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 1000    
+  - 10000   
+  - 100000  
+  - 1000000 
+  - 10000000
+  - 100000000
+experiments:
+  - Eager:
+    - {excutable: exp-exchange  , inputOne: 1000            , inputTwo:               , inputThree:           }
+    - {excutable: exp-exchange  , inputOne: 10000           , inputTwo:               , inputThree:           }
+    - {excutable: exp-exchange  , inputOne: 100000          , inputTwo:               , inputThree:           }
+    - {excutable: exp-exchange  , inputOne: 1000000         , inputTwo:               , inputThree:           }
+    - {excutable: exp-exchange  , inputOne: 10000000        , inputTwo:               , inputThree:           }
+    - {excutable: exp-exchange  , inputOne: 100000000       , inputTwo:               , inputThree:           }
+  - Batched:
+    - {excutable: exp-exchange  , inputOne: 1000            , inputTwo:               , inputThree:           }
+    - {excutable: exp-exchange  , inputOne: 10000           , inputTwo:               , inputThree:           }
+    - {excutable: exp-exchange  , inputOne: 100000          , inputTwo:               , inputThree:           }
+    - {excutable: exp-exchange  , inputOne: 1000000         , inputTwo:               , inputThree:           }
+    - {excutable: exp-exchange  , inputOne: 10000000        , inputTwo:               , inputThree:           }
+    - {excutable: exp-exchange  , inputOne: 100000000       , inputTwo:               , inputThree:           }
+  

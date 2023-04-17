@@ -1,0 +1,37 @@
+---
+experimentName: "Baseline Vs Optimized - WAN"
+experimentTag: figure-6-WAN
+iterationsNumber: 3
+serverLocations:
+    - us-east-2
+    - us-east-2
+    - us-east-2
+verticalAxisTags:
+    - "Comorbidity"
+    - "RC. Diff"
+    - "Aspirin"
+    - "Pwd"
+    - "Credit"
+    - "TPC-H Q4"
+    - "TPC-H Q6"
+    - "TPC-H Q13"
+experiments:
+    - Not optimized:
+        - {excutable: exp-q1-baseline               , inputOne: 44.907          , inputTwo: 43.082         , inputThree: 43.809         }
+        - {excutable: exp-q2-baseline               , inputOne: 2050.162        , inputTwo: 2069.95        , inputThree: 2079.278       }
+        - {excutable: exp-q3-baseline               , inputOne: 2142.899        , inputTwo: 2103.409       , inputThree: 2103.409       }
+        - {excutable: exp-qpwd-baseline             , inputOne: 36.253          , inputTwo: 36.517         , inputThree: 37.049         }
+        - {excutable: exp-qcredit-baseline          , inputOne: 28.076          , inputTwo: 28.075         , inputThree: 28.21          }
+        - {excutable: exp-tpch-q4-baseline          , inputOne: 22.260          , inputTwo: 22.026         , inputThree: 21.877         }
+        - {excutable: exp-tpch-q6-baseline          , inputOne: 12.564          , inputTwo: 12.336         , inputThree: 12.592         }
+        # TODO: Update this row.
+        - {excutable: exp-tpch-q13-baseline         , inputOne: 49498.255       , inputTwo: 49541.608      , inputThree: 49480.993      }
+    - Optimized:
+        - {excutable: exp-q1                        , inputOne: 32.859            , inputTwo: 33.242       , inputThree: 33.558         }
+        - {excutable: exp-q2                        , inputOne: 55.449            , inputTwo: 55.04        , inputThree: 57.157         }
+        - {excutable: exp-q3                        , inputOne: 102.139           , inputTwo: 103.826      , inputThree: 100.221        }
+        - {excutable: exp-qpwd                      , inputOne: 24.830            , inputTwo: 25.205       , inputThree: 25.004         }
+        - {excutable: exp-qcredit                   , inputOne: 26.198            , inputTwo: 27.137       , inputThree: 26.258         }
+        - {excutable: exp-tpch-q4                   , inputOne: 12.221            , inputTwo: 12.073       , inputThree: 11.903         }
+        - {excutable: exp-tpch-q6                   , inputOne: 0.5390            , inputTwo: 0.5402       , inputThree: 0.4341         }
+        - {excutable: exp-tpch-q13                  , inputOne: 33.427            , inputTwo: 33.482       , inputThree: 32.35          }

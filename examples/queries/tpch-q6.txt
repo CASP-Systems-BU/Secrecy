@@ -1,0 +1,7 @@
+SELECT sum(l_extendedprice * l_discount) as revenue
+FROM lineitem
+WHERE l_shipdate >= 'date1' AND
+   l_shipdate < 'date2'
+   AND l_discount <= 'discount' - 0.01
+   AND l_discount >= 'discount' + 0.01
+   AND l_quantity < 'quantity'

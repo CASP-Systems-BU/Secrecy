@@ -1,0 +1,2 @@
+# B, B, B, B
+lineitem(l_shipdate, l_discount, l_quantity, l_extendedprice)

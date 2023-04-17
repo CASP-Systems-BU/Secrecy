@@ -1,0 +1,6 @@
+SELECT diag, COUNT(*) as cnt
+FROM diagnosis
+WHERE pid IN (SELECT * FROM cdiff_cohort)
+GROUP BY diag
+ORDER BY cnt DESC
+LIMIT 10

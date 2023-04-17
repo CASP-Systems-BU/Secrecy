@@ -1,0 +1,31 @@
+---
+experimentName: "Semi Join"
+experimentTag: figure-11-a
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 1000    
+  - 10000   
+  - 100000  
+  - 1000000 
+  - 10000000
+  - 100000000
+experiments:
+  - Eager:
+    - {excutable: exp-exchange  , inputOne: 0.071         , inputTwo: 0.068               , inputThree: 0.069           }
+    - {excutable: exp-exchange  , inputOne: 0.671         , inputTwo: 0.687               , inputThree: 0.667           }
+    - {excutable: exp-exchange  , inputOne: 6.811         , inputTwo: 6.772               , inputThree: 6.920           }
+    - {excutable: exp-exchange  , inputOne: 66.149        , inputTwo: 67.402              , inputThree: 68.108          }
+    - {excutable: exp-exchange  , inputOne: 684.371       , inputTwo: 667.155             , inputThree: 664.139         }
+    - {excutable: exp-exchange  , inputOne: 7274.674      , inputTwo: 6872.912            , inputThree: 7341.445        }
+  - Batched:
+    - {excutable: exp-exchange  , inputOne: 0.0000        , inputTwo: 0.0000              , inputThree: 0.0000          }
+    - {excutable: exp-exchange  , inputOne: 0.0000        , inputTwo: 0.0000              , inputThree: 0.0000          }
+    - {excutable: exp-exchange  , inputOne: 0.0030        , inputTwo: 0.0020              , inputThree: 0.0030          }
+    - {excutable: exp-exchange  , inputOne: 0.0180        , inputTwo: 0.0260              , inputThree: 0.0250          }
+    - {excutable: exp-exchange  , inputOne: 0.1780        , inputTwo: 0.1530              , inputThree: 0.1640          }
+    - {excutable: exp-exchange  , inputOne: 1.3980        , inputTwo: 1.7320              , inputThree: 1.4180          }
+  

@@ -1,0 +1,36 @@
+---
+experimentName: "sort"
+experimentTag: figure-8-b
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 65536  
+  - 131072  
+  - 262144  
+  - 524288  
+  - 1048576  
+  - 2097152  
+  - 4194304  
+  - 8388608  
+experiments:
+  - EMP:
+    - {excutable: emp               , inputOne: 56.2693       , inputTwo: 57.5373             , inputThree: 51.4551           }
+    - {excutable: emp               , inputOne: 119.146       , inputTwo: 127.03              , inputThree: 119.72            }
+    - {excutable: emp               , inputOne: 229.742       , inputTwo: 282.48              , inputThree: 238.557           }
+    - {excutable: emp               , inputOne: 568.613       , inputTwo: 625.201             , inputThree: 629.419           }
+    # Third point is an approximate
+    - {excutable: emp               , inputOne: 1383.58       , inputTwo: 1549.71             , inputThree: 1450              }
+    - {excutable: emp               , inputOne: 3066.74       , inputTwo: 3157.96             , inputThree: 3127.81           }
+    - {excutable: emp               , inputOne: 10876.4       , inputTwo: 10862.7             , inputThree: 10726             }
+  - Secrecy:
+    - {excutable: exp-order-by      , inputOne: 7.517         , inputTwo: 7.479               , inputThree: 7.421             }
+    - {excutable: exp-order-by      , inputOne: 16.559        , inputTwo: 16.254              , inputThree: 16.441            }
+    - {excutable: exp-order-by      , inputOne: 36.587        , inputTwo: 36.774              , inputThree: 37.025            }
+    - {excutable: exp-order-by      , inputOne: 79.877        , inputTwo: 80.775              , inputThree: 79.487            }
+    - {excutable: exp-order-by      , inputOne: 176.098       , inputTwo: 177.938             , inputThree: 175.476           }
+    - {excutable: exp-order-by      , inputOne: 385.231       , inputTwo: 391.466             , inputThree: 384.135           }
+    - {excutable: exp-order-by      , inputOne: 855.91        , inputTwo: 852.932             , inputThree: 848.232           }
+    - {excutable: exp-order-by      , inputOne: 1843.583      , inputTwo: 1891.226            , inputThree: 1867.638          }

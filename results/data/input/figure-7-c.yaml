@@ -1,0 +1,33 @@
+---
+experimentName: "Category C"
+experimentTag: figure-7-c
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 1024 
+  - 4096 
+  - 8192 
+  - 16384
+  - 32768
+experiments:
+  - exp-tpch-q4:
+    - {excutable: exp-tpch-q4       , inputOne: 1024        , inputTwo: 1024          , inputThree: 512       }
+    - {excutable: exp-tpch-q4       , inputOne: 4096        , inputTwo: 4096          , inputThree: 512       }
+    - {excutable: exp-tpch-q4       , inputOne: 8192        , inputTwo: 8192          , inputThree: 512       }
+    - {excutable: exp-tpch-q4       , inputOne: 16384       , inputTwo: 16384         , inputThree: 512       }
+    - {excutable: exp-tpch-q4       , inputOne: 32768       , inputTwo: 32768         , inputThree: 512       }
+  - exp-tpch-q13:
+    - {excutable: exp-tpch-q13      , inputOne: 1024        , inputTwo: 1024          , inputThree: 512       }
+    - {excutable: exp-tpch-q13      , inputOne: 4096        , inputTwo: 4096          , inputThree: 512       }
+    - {excutable: exp-tpch-q13      , inputOne: 8192        , inputTwo: 8192          , inputThree: 512       }
+    - {excutable: exp-tpch-q13      , inputOne: 16384       , inputTwo: 16384         , inputThree: 512       }
+    - {excutable: exp-tpch-q13      , inputOne: 32768       , inputTwo: 32768         , inputThree: 512       }
+  - aspirin-count:
+    - {excutable: exp-q3            , inputOne: 1024        , inputTwo: 1024          , inputThree: 1024      }
+    - {excutable: exp-q3            , inputOne: 4096        , inputTwo: 4096          , inputThree: 4096      }
+    - {excutable: exp-q3            , inputOne: 8192        , inputTwo: 8192          , inputThree: 8192      }
+    - {excutable: exp-q3            , inputOne: 16384       , inputTwo: 16384         , inputThree: 16384     }
+    - {excutable: exp-q3            , inputOne: 32768       , inputTwo: 32768         , inputThree: 32768     }

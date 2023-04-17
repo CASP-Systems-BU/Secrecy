@@ -1,0 +1,317 @@
+---
+# figureDirectory: "../results-sysx/AWS/figure/"
+# outputDirectory: "../results-sysx/AWS/output/"
+plots:
+  - figure-6:
+      {
+        name: figure-6,
+        #subName: "Optimizations gain",
+        subName: "",
+        hatches: ["/", "-"],
+        colors: ["lightgray", "darkred"],
+        xLog: false,
+        yLog: true,
+        bar: true,
+        label: true,
+        cutPoint: false,
+      }
+  - figure-6-WAN:
+      {
+        name: figure-6-WAN,
+        subName: "Optimizations gain WAN",
+        hatches: ["/", "-"],
+        #hatches: ["+", "\\", "/", "-"],
+        colors: ["lightgray", "darkred"],
+        #colors: ["sandybrown", "indianred", "darkorange", "firebrick"],
+        xLog: false,
+        yLog: true,
+        bar: true,
+        label: true,
+        #label: false,
+        cutPoint: false,
+      }
+  - figure-7-a:
+      {
+        name: figure-7-a,
+        subName: "Category A",
+        hatches: ["."],
+        colors: ["goldenrod"],
+        xLog: false,
+        yLog: true,
+        bar: true,
+        label: false,
+        cutPoint: false,
+        labels: ["32K", "128K", "512K", "2M", "8M"],
+        yTitle: "Time (s)",
+        xTitle: "Rows",
+      }
+  - figure-7-b:
+      {
+        name: figure-7-b,
+        subName: "Category B",
+        hatches: ["+", "\\", "/", "-"],
+        colors: ["sandybrown", "indianred", "darkorange", "firebrick"],
+        xLog: false,
+        yLog: true,
+        bar: true,
+        label: false,
+        cutPoint: false,
+        labels: ["32K", "128K", "512K", "2M"],
+        yTitle: "Time (s)",
+        xTitle: "Rows",
+      }
+  - figure-7-c:
+      {
+        name: figure-7-c,
+        subName: "Category C",
+        hatches: ["+", "\\", "/"],
+        colors: ["seagreen", "yellowgreen", "lightseagreen"],
+        xLog: false,
+        yLog: true,
+        bar: true,
+        label: false,
+        cutPoint: false,
+        labels: ["1x", "4x", "8x", "16x", "32x"],
+        yTitle: "Time (s)",
+        xTitle: "Scaling factor",
+      }
+  - figure-8-a:
+      {
+        name: figure-8-a,
+        subName: "Equi-Join",
+        hatches: ["/", "-", ""],
+        colors: ["bisque", "darkred", "lightseagreen"],
+        xLog: false,
+        yLog: true,
+        bar: true,
+        label: true,
+        cutPoint: false,
+        labels: ["10K", "20K", "30K", "40K", "60K", "80K", "100K"],
+        yTitle: "Time (s)",
+        xTitle: "Rows per input",
+      }
+  - figure-8-a-WAN:
+      {
+        name: figure-8-a-WAN,
+        subName: "Equi-Join",
+        hatches: ["/", "-", ""],
+        colors: ["bisque", "darkred", "lightseagreen"],
+        xLog: false,
+        yLog: true,
+        bar: true,
+        label: true,
+        cutPoint: false,
+        labels: ["10K", "20K", "30K", "40K", "60K", "80K", "100K"],
+        yTitle: "Time (s)",
+        xTitle: "Rows per input",
+      }
+  - figure-8-b:
+      {
+        name: figure-8-b,
+        subName: "Sort",
+        hatches: ["/", "-"],
+        colors: ["bisque", "darkred"],
+        xLog: false,
+        yLog: true,
+        bar: true,
+        label: true,
+        cutPoint: false,
+        labels: ["64K", "128K", "256K", "512K", "1M", "2M", "4M", "8M"],
+        yTitle: "Time (s)",
+        xTitle: "Rows per input",
+      }
+  - figure-8-b-WAN:
+      {
+        name: figure-8-b-WAN,
+        subName: "Sort",
+        hatches: ["/", "-"],
+        colors: ["bisque", "darkred"],
+        xLog: false,
+        yLog: true,
+        bar: true,
+        label: true,
+        cutPoint: false,
+        labels: ["64K", "128K", "256K", "512K", "1M", "2M", "4M", "8M"],
+        yTitle: "Time (s)",
+        xTitle: "Rows per input",
+      }
+  - figure-9-a:
+      {
+        name: figure-9-a,
+        subName: "Distinct-Join reordering in Q1",
+        hatches: [".", "."],
+        lineStyle: ["solid", "dashed"],
+        colors: ["black", "green"],
+        xLog: true,
+        yLog: true,
+        bar: false,
+        label: false,
+        cutPoint: true,
+        yTitle: "Time (s)",
+        xTitle: "Rows per input",
+      }
+  - figure-9-b:
+      {
+        name: figure-9-b,
+        subName: "Join-Aggreg. decomposition in Q2",
+        hatches: [".", "."],
+        lineStyle: ["solid", "dashed"],
+        colors: ["black", "green"],
+        xLog: true,
+        yLog: true,
+        bar: false,
+        label: false,
+        cutPoint: true,
+        yTitle: "Time (s)",
+        xTitle: "Rows per input",
+      }
+  - figure-9-c:
+      {
+        name: figure-9-c,
+        subName: "Select-Distinct fusion in Q3",
+        hatches: [".", "."],
+        lineStyle: ["solid", "dashed"],
+        colors: ["black", "green"],
+        xLog: true,
+        yLog: true,
+        bar: false,
+        label: false,
+        cutPoint: true,
+        yTitle: "Time (s)",
+        xTitle: "Rows",
+      }
+  - exp-extra-1.yaml:
+      {
+        name: figure-9-c-WAN,
+        subName: "Select-Distinct fusion in Q3 with WAN",
+        hatches: [".", ".", ".", "."],
+        lineStyle: ["solid", "dashed"],
+        colors: ["black", "green"],
+        xLog: true,
+        yLog: true,
+        bar: false,
+        label: false,
+        cutPoint: true,
+        yTitle: "Time (s)",
+        xTitle: "Rows",
+      }
+  - figure-9-d:
+      {
+        name: figure-9-d,
+        subName: "Dual sharing in Group-by-count",
+        hatches: [".", "."],
+        lineStyle: ["solid", "dashed"],
+        colors: ["black", "green"],
+        xLog: true,
+        yLog: true,
+        bar: false,
+        label: false,
+        cutPoint: true,
+        yTitle: "Time (s)",
+        xTitle: "Rows",
+      }
+  - figure-9-d-WAN:
+      {
+        name: figure-9-d-WAN,
+        subName: "Dual sharing in Group-by-count WAN",
+        hatches: [".", "."],
+        lineStyle: ["solid", "dashed"],
+        colors: ["black", "green"],
+        xLog: true,
+        yLog: true,
+        bar: false,
+        label: false,
+        cutPoint: true,
+        yTitle: "Time (s)",
+        xTitle: "Rows",
+      }
+  - figure-10-a:
+      {
+        name: figure-10-a,
+        subName: "Unary operators",
+        hatches: [".", "x", "+"],
+        lineStyle: ["dashed", "solid", "dotted"],
+        colors: ["green", "darkred", "darkblue"],
+        xLog: true,
+        yLog: true,
+        bar: false,
+        label: false,
+        cutPoint: true,
+        yTitle: "Time (s)",
+        xTitle: "Rows",
+      }
+  - figure-10-b:
+      {
+        name: figure-10-b,
+        subName: "Join operators",
+        hatches: [".", "x", "+"],
+        lineStyle: ["dashed", "solid", "dotted"],
+        colors: ["green", "darkred", "darkblue"],
+        xLog: true,
+        yLog: true,
+        bar: false,
+        label: false,
+        cutPoint: true,
+        yTitle: "Time (s)",
+        xTitle: "Rows",
+      }
+  - figure-10-c:
+      {
+        name: figure-10-c,
+        subName: "Semi-join operator",
+        hatches: [".", "x", "+"],
+        lineStyle: ["dashed", "solid", "dotted"],
+        colors: ["green", "darkred", "darkblue"],
+        xLog: false,
+        yLog: false,
+        bar: false,
+        label: false,
+        cutPoint: true,
+        yTitle: "Time (s)",
+        xTitle: "Rows",
+      }
+  - figure-10-c-WAN:
+      {
+        name: figure-10-c-WAN,
+        subName: "Semi-join operator - WAN",
+        hatches: [".", ".", "x", "x"],
+        lineStyle: ["dashed", "dashed", "solid", "solid"],
+        colors: ["lightgreen", "darkgreen", "red", "darkred"],
+        xLog: true,
+        yLog: true,
+        bar: false,
+        label: false,
+        cutPoint: true,
+        yTitle: "Time (s)",
+        xTitle: "Rows",
+      }
+  - figure-11-a:
+      {
+        name: figure-11-a,
+        subName: "Eager vs. batched communication",
+        hatches: [".", "x", "+"],
+        lineStyle: ["solid", "dashed", "dotted"],
+        colors: ["darkred", "green", "darkblue"],
+        xLog: true,
+        yLog: true,
+        bar: false,
+        label: false,
+        cutPoint: true,
+        yTitle: "Time (s)",
+        xTitle: "Rows",
+      }
+  - figure-11-b:
+      {
+        name: figure-11-b,
+        subName: "Comparison and addition",
+        hatches: [".", "x", "+"],
+        lineStyle: ["dotted", "dashed", "solid"],
+        colors: ["darkblue", "green", "darkred"],
+        xLog: true,
+        yLog: true,
+        bar: false,
+        label: false,
+        cutPoint: true,
+        yTitle: "Time (s)",
+        xTitle: "Rows",
+      }

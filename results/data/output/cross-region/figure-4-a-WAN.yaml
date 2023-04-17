@@ -1,0 +1,21 @@
+---
+experimentName: "Category A (WAN)"
+experimentTag: figure-7-a-WAN
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 32768  
+  - 131072 
+  - 524288 
+  - 2097152
+  - 8388608
+experiments:
+  - TPC-H Q6:
+    - {excutable: exp-tpch-q6         , inputOne: 0.026459       , inputTwo: 0.026877         , inputThree: 0.026057         }
+    - {excutable: exp-tpch-q6         , inputOne: 0.102666       , inputTwo: 0.107656         , inputThree: 0.104314         }
+    - {excutable: exp-tpch-q6         , inputOne: 0.420823       , inputTwo: 0.435484         , inputThree: 0.422598         }
+    - {excutable: exp-tpch-q6         , inputOne: 1.626393       , inputTwo: 1.625226         , inputThree: 1.714135         }
+    - {excutable: exp-tpch-q6         , inputOne: 6.490753       , inputTwo: 6.428185         , inputThree: 6.371925         }

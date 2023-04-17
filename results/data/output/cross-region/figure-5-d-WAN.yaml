@@ -1,0 +1,48 @@
+---
+experimentName: "group by WAN"
+experimentTag: figure-9-d-WAN
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-west-1
+  - us-east-1
+verticalAxisTags:
+  - 1024
+  - 2048
+  - 4096
+  - 8192
+  - 16384
+  - 32768
+  - 65536
+  - 131072
+  - 262144
+  - 524288
+  - 1048576
+  # - 2097152
+  # - 4194304
+  # - 8388608
+experiments:
+  - baseline:
+    - {excutable: exp-group-by-baseline             , inputOne: 27.972        , inputTwo: 28.441        , inputThree: 27.470          }
+    - {excutable: exp-group-by-baseline             , inputOne: 31.785        , inputTwo: 30.522        , inputThree: 31.083          }
+    - {excutable: exp-group-by-baseline             , inputOne: 34.662        , inputTwo: 34.650        , inputThree: 35.273          }
+    - {excutable: exp-group-by-baseline             , inputOne: 38.677        , inputTwo: 39.375        , inputThree: 38.113          }
+    - {excutable: exp-group-by-baseline             , inputOne: 110.153       , inputTwo: 111.160       , inputThree: 110.712         }
+    - {excutable: exp-group-by-baseline             , inputOne: 131.568       , inputTwo: 130.572       , inputThree: 130.978         }
+    - {excutable: exp-group-by-baseline             , inputOne: 159.766       , inputTwo: 161.082       , inputThree: 156.208         }
+    - {excutable: exp-group-by-baseline             , inputOne: 199.158       , inputTwo: 213.521       , inputThree: 232.874         }
+    - {excutable: exp-group-by-baseline             , inputOne: 428.656       , inputTwo: 428.656       , inputThree: 412.989         }
+    - {excutable: exp-group-by-baseline             , inputOne: 740.686       , inputTwo: 723.952       , inputThree: 747.066         }
+    - {excutable: exp-group-by-baseline             , inputOne: 1520.52       , inputTwo: 1482.652      , inputThree: 1534.046        }
+  - optimized:
+    - {excutable: exp-group-by                      , inputOne: 4.202          , inputTwo: 4.118            , inputThree: 4.142           }
+    - {excutable: exp-group-by                      , inputOne: 4.528          , inputTwo: 4.604            , inputThree: 4.569           }
+    - {excutable: exp-group-by                      , inputOne: 5.135          , inputTwo: 5.240            , inputThree: 5.148           }
+    - {excutable: exp-group-by                      , inputOne: 5.924          , inputTwo: 5.818            , inputThree: 5.839           }
+    - {excutable: exp-group-by                      , inputOne: 7.485          , inputTwo: 7.532            , inputThree: 7.691           }
+    - {excutable: exp-group-by                      , inputOne: 17.351         , inputTwo: 17.430           , inputThree: 17.468          }
+    - {excutable: exp-group-by                      , inputOne: 24.788         , inputTwo: 25.093           , inputThree: 24.804          }
+    - {excutable: exp-group-by                      , inputOne: 29.826         , inputTwo: 30.011           , inputThree: 29.283          }
+    - {excutable: exp-group-by                      , inputOne: 42.230         , inputTwo: 42.613           , inputThree: 41.759          }
+    - {excutable: exp-group-by                      , inputOne: 80.827         , inputTwo: 80.955           , inputThree: 79.696          }
+    - {excutable: exp-group-by                      , inputOne: 156.172        , inputTwo: 155.047          , inputThree: 157.540         }

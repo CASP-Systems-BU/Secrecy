@@ -1,0 +1,3 @@
+SELECT DISTINCT R.id
+FROM R, S
+WHERE R.id = S.id

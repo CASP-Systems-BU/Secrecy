@@ -1,0 +1,4 @@
+# B, B
+diagnosis(pid, diag)
+# B
+cdiff_cohort(pid)

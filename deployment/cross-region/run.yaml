@@ -1,0 +1,408 @@
+- name: test aws connection
+  hosts: localhost
+  tasks:
+  ### async this and start up all 3 at concurrently to save some time.
+  - name: start an instance with a public IP address
+    community.aws.ec2_instance:
+      name: "machine_1-equality"
+      key_name: "secrecy-server-key"
+      availability_zone: "us-east-2"
+      region: "us-east-2"
+      instance_type: r5.xlarge
+      security_group: default
+      network:
+        assign_public_ip: true
+      image_id: ami-08962a4068733a2b6
+      tags:
+        Environment: Testing
+      volumes:
+      - device_name: /dev/sda1
+        ebs:
+          volume_size: 16
+          delete_on_termination: true
+    register: machine_1_sleeper
+    async: 600
+    poll: 0
+
+  ### async this and start up all 3 at concurrently to save some time.
+  - name: start an instance with a public IP address
+    community.aws.ec2_instance:
+      name: "machine_2-equality"
+      key_name: "secrecy-server-key"
+      availability_zone: "us-west-1"
+      region: "us-west-1"
+      instance_type: r5.xlarge
+      security_group: default
+      network:
+        assign_public_ip: true
+      image_id: ami-031b673f443c2172c
+      tags:
+        Environment: Testing
+      volumes:
+      - device_name: /dev/sda1
+        ebs:
+          volume_size: 16
+          delete_on_termination: true
+    register: machine_2_sleeper
+    async: 600
+    poll: 0
+   
+  ### async this and start up all 3 at concurrently to save some time.
+  - name: start an instance with a public IP address
+    community.aws.ec2_instance:
+      name: "machine_3-equality"
+      key_name: "secrecy-server-key"
+      region: "us-east-1"
+      availability_zone: "us-east-1"
+      instance_type: r5.xlarge
+      security_group: default
+      network:
+        assign_public_ip: true
+      image_id: ami-042e8287309f5df03
+      tags:
+        Environment: Testing
+      volumes:
+      - device_name: /dev/sda1
+        ebs:
+          volume_size: 16
+          delete_on_termination: true
+    register: machine_3_sleeper
+    async: 600
+    poll: 0
+
+
+  - name: Wait for machine 1 provisioning complete
+    async_status:
+      jid: "{{machine_1_sleeper.ansible_job_id}}"
+    register: status
+    until: status.finished
+    retries: 60
+    delay: 10
+
+  - name: Wait for machine 2 provisioning complete
+    async_status:
+      jid: "{{machine_2_sleeper.ansible_job_id}}"
+    register: status
+    until: status.finished
+    retries: 60
+    delay: 10
+
+  - name: Wait for machine 3 provisioning complete
+    async_status:
+      jid: "{{machine_3_sleeper.ansible_job_id}}"
+    register: status
+    until: status.finished
+    retries: 60
+    delay: 10
+
+  - name: Collecting machine 1 facts
+    community.aws.ec2_instance:
+      name: "machine_1-equality"
+      region: "us-east-2"
+      image_id: ami-08962a4068733a2b6
+    register: machine_1
+
+  - name: Collecting machine 2 facts
+    community.aws.ec2_instance:
+      name: "machine_2-equality"
+      region: "us-west-1"
+      image_id: ami-031b673f443c2172c
+    register: machine_2
+   
+  - name: Collecting machine 3 facts
+    community.aws.ec2_instance:
+      name: "machine_3-equality"
+      region: "us-east-1"
+      image_id: ami-042e8287309f5df03
+    register: machine_3
+
+
+
+  - name: Add IPs to dummy host  # we need to store node 2/3's IP because we change hosts later
+    add_host:
+      name: dummy_host
+      machine_1: "{{machine_1.instances[0]['public_ip_address']}}"
+      machine_2: "{{machine_2.instances[0]['public_ip_address']}}"
+      machine_3: "{{machine_3.instances[0]['public_ip_address']}}"
+      
+  - name: Add machine_1 to host
+    add_host:
+      name: "{{machine_1.instances[0]['public_ip_address']}}"
+      groups: 
+        - machine_1_host
+        - cluster
+
+  - name: Add machine_2 to host
+    add_host:
+      name: "{{machine_2.instances[0]['public_ip_address']}}"
+      groups: 
+        - machine_2_host
+        - cluster
+
+  - name: Add machine_3 to host
+    add_host:
+      name: "{{machine_3.instances[0]['public_ip_address']}}"
+      groups: 
+        - machine_3_host
+        - cluster
+
+# MPI OOB connections use the hostname to connect to each other, we can change the hostname to the IP so that we don't need to modify the hostfile on each
+# machine. This is simpler than collecting the information through ansible and the propogating them. Fine to do since this is just a one off server with a single purpose.
+# Will need to be more careful if we keep this around for longer and change other sources as well.
+- name: Change hostname for each machine to be IP 
+  hosts: machine_1_host
+  tasks:
+  - name: Change hostname for machine 1
+    shell: hostnamectl set-hostname machine-1
+    become: yes
+
+- name: Change hostname for each machine to be IP 
+  hosts: machine_2_host
+  tasks:
+  - name: Change hostname for machine 2
+    shell: hostnamectl set-hostname machine-2
+    become: yes
+
+- name: Change hostname for each machine to be IP 
+  hosts: machine_3_host
+  tasks:
+  - name: Change hostname for machine 3
+    shell: hostnamectl set-hostname machine-3
+    become: yes
+
+- name: Start prepping machines
+  hosts: cluster
+  tasks:
+  - name: Bypassing strict checking on main node for mpi
+    copy:
+      src: mpc.conf
+      dest: /etc/ssh/ssh_config.d/mpc.conf
+      owner: root
+      group: root
+      mode: u=rw,g=r,o=r
+    become: yes
+
+
+  # Make sure a group exists that we can use to manage access to all the files
+  - name: Ensure mpc group exists
+    group:
+      name: mpc
+      state: present
+    become: yes
+
+  # Add user to the mpc group we created, current user by default, others can be appended
+  - name: Adding existing user ubuntu to group mpc
+    user:
+      name: ubuntu
+      groups: mpc
+      append: yes
+    become: yes
+
+  - name: Add StrictHostKeyChecking=no to ssh config
+    copy:
+      src: config
+      dest: /home/ubuntu/.ssh/config
+      owner: ubuntu
+      group: mpc
+      mode: u=rw,g=r,o=r
+    become: yes
+
+  - name: Copy over ssh key for mpc to use
+    copy:
+      src: ~/.ssh/id_rsa
+      dest: /home/ubuntu/.ssh/id_rsa
+      mode: 0600
+      owner: ubuntu
+      group: ubuntu
+    become: yes
+
+  # Create a directory that is accessible to any potential user
+  - name: Create directories if they don't exist
+    file:
+      path: "{{ item }}"
+      state: directory
+      owner: ubuntu
+      group: mpc
+      # set gid flag here so all files added belong to mpc
+      mode: 02775
+      # not sure that I need to use recurse here... this sets the gid for all files and directories?
+      # recurse: true
+    become: yes
+    loop:
+      - /mpc/
+
+  # built in ansible git doesn't auto use the machine's ssh to download. This is a simpler workaround.
+  - name: Download code base from git
+    git: 
+      repo: git@github.com:vasia/mpc-sql.git
+      dest: /mpc/
+      accept_hostkey: yes
+      key_file: ~/.ssh/id_rsa
+      force: yes
+    retries: 3
+    delay: 5
+
+  # The variables imported list all the packages to install
+  - name: Set OS distribution dependent variables
+    include_vars:
+      file: "vars_os_Ubuntu.yaml"
+
+  - name: Add scorep repository from PPA and install its signing key on Ubuntu target
+    apt_repository:
+      repo: ppa:andreasgocht/scorep
+    become: yes
+
+  - name: Update apt caches
+    apt: update_cache=yes
+    become: yes
+
+  # Loop over the packages and install any that are missing
+  - name: Install "{{ required_package }}"
+    package:
+      name: "{{ required_packages }}"
+      state: present
+    become: yes
+    loop: "{{ required_packages }}"
+
+  # Doing this manually because for some reason ansible package does not properly clean everything.
+  - name: Remove openmpi-bin
+    shell: 
+      cmd: apt-get remove --autoremove openmpi-bin mpich -y
+      warn: false
+    become: yes
+
+  - name: Install MPICH
+    shell: 
+      cmd: apt-get install mpich -y
+      warn: false
+    become: yes
+
+  - name: Add to host file
+    lineinfile:
+      path: /etc/hosts
+      line: "{{ item }}"
+      create: yes
+    become: yes
+    with_items:
+    - "{{hostvars['dummy_host']['machine_1']}} machine-1"
+    - "{{hostvars['dummy_host']['machine_2']}} machine-2"
+    - "{{hostvars['dummy_host']['machine_3']}} machine-3"
+
+  # - name: download OpenMPI
+  #   get_url:
+  #     url: https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.0.tar.gz
+  #     dest: openmpi.tar.gz
+
+  # - name: install OpenMPI
+  #   shell: tar xvzf openmpi.tar.gz ; cd openmpi-4.1.0 ; ./configure --prefix=$HOME/opt/openmpi ; make -j3 all ; make install ; echo "export PATH=\$HOME/opt/openmpi/bin:\$PATH" >> $HOME/.bashrc ; echo "export LD_LIBRARY_PATH=\$HOME/opt/openmpi/lib:\$LD_LIBRARY_PATH" >> $HOME/.bashrc
+
+    
+  - name: Fix Makefile for Linux Systems
+    lineinfile:
+      dest: /mpc/code/experiments/Makefile
+      regexp: "{{item.regexp}}"
+      line: "{{item.line}}"
+    with_items:
+    - { regexp: "CFLAGS= -O3 -Wall -lsodium", line: "CFLAGS= -O3 -Wall"}
+    - { regexp: "PRIMITIVES= ", line: "PRIMITIVES= $(SRC)/comm.c $(SRC)/party.c $(SRC)/primitives.c $(SRC)/sharing.c $(SRC)/utils.c -lsodium"}
+    - { regexp: "RELATIONAL=", line: "RELATIONAL= $(SRC)/relational.c -lm"}
+
+  - name: Fix code for LinuxGCC
+    shell: 
+      cmd: "{{item}}"
+      chdir: /mpc/code/
+    with_items:
+    - find . \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i 's/LONG_LONG_MIN/LLONG_MIN/g'
+    - find . \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i 's/LONG_LONG_MAX/LLONG_MAX/g'
+
+  - name: Only run test 1
+    copy:
+      src: /home/ubuntu/mpc-sql/secrecy-app/ansible/experiments/exp_equality.c
+      dest: /mpc/code/experiments/exp_equality.c
+
+  - name: Make secrecy
+    shell: 'make exp-equality'
+    args:
+      chdir: /mpc/code/experiments
+
+- name: Running Secrecy on Node 1
+  hosts: machine_1_host
+  tasks:
+
+  # The variables imported list all the packages to install
+  - name: Include mpc tests
+    include_vars:
+      file: "mpc_tests.yaml"
+
+  - name: Run Secrecy Test
+    shell: "mpirun -hosts machine-1,machine-2,machine-3 -np 3 ./exp-equality {{item}}"
+    args:
+      chdir: /mpc/code/experiments
+    register: mpc_output
+    with_items:
+    - 100
+    - 1000
+    - 10000
+    - 100000
+
+  - name: Print test results
+    debug: 
+      msg: '{{item.stdout}}'
+    loop: "{{mpc_output['results']}}"
+    loop_control:
+      label: " "
+
+
+- name: Remove all instances
+  hosts: localhost
+  tasks:
+  - name: terminate machine 1
+    community.aws.ec2_instance:
+      region: "us-east-2"
+      state: absent
+      instance_ids: "{{machine_1.instances[0]['instance_id']}}"
+    async: 300
+    poll: 0
+    register: term_1
+
+  - name: terminate machine 2
+    community.aws.ec2_instance:
+      region: "us-west-1"
+      state: absent
+      instance_ids: "{{machine_2.instances[0]['instance_id']}}"
+    async: 300
+    poll: 0
+    register: term_2
+
+  - name: terminate machine 3
+    community.aws.ec2_instance:
+      region: "us-east-1"
+      state: absent
+      instance_ids: "{{machine_3.instances[0]['instance_id']}}"
+    async: 300
+    poll: 0
+    register: term_3
+
+  - name: Wait for machine 1 to terminate
+    async_status:
+      jid: "{{term_1.ansible_job_id}}"
+    register: status
+    until: status.finished
+    retries: 30
+    delay: 20
+
+  - name: Wait for machine 2 to terminate
+    async_status:
+      jid: "{{term_2.ansible_job_id}}"
+    register: status
+    until: status.finished
+    retries: 30
+    delay: 20
+
+  - name: Wait for machine 3 to terminate
+    async_status:
+      jid: "{{term_3.ansible_job_id}}"
+    register: status
+    until: status.finished
+    retries: 30
+    delay: 20

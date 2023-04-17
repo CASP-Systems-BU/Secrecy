@@ -1,0 +1,50 @@
+---
+experimentName: "select distinct"
+experimentTag: figure-9-c-WAN
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 32   
+  - 64   
+  - 128  
+  - 256  
+  - 512  
+  - 1024 
+  - 2048 
+  - 4096 
+  - 8192 
+  - 16384
+  - 32768
+  - 65536 
+  - 131072
+  - 262144
+experiments:
+  - baseline:
+    - {excutable: exp-select-distinct-naive         , inputOne: 10.552        , inputTwo: 10.595          , inputThree: 10.593          }
+    - {excutable: exp-select-distinct-naive         , inputOne: 19.681        , inputTwo: 19.309          , inputThree: 19.673          }
+    - {excutable: exp-select-distinct-naive         , inputOne: 36.722        , inputTwo: 35.966          , inputThree: 36.770          }
+    - {excutable: exp-select-distinct-naive         , inputOne: 70.756        , inputTwo: 69.642          , inputThree: 68.415          }
+    - {excutable: exp-select-distinct-naive         , inputOne: 137.283       , inputTwo: 134.801         , inputThree: 131.585         }
+    - {excutable: exp-select-distinct-naive         , inputOne: 263.301       , inputTwo: 262.074         , inputThree: 266.535         }
+    - {excutable: exp-select-distinct-naive         , inputOne: 517.05        , inputTwo: 517.411         , inputThree: 517.198         }
+    - {excutable: exp-select-distinct-naive         , inputOne: 1034.713      , inputTwo: 1034.667        , inputThree: 1030.043        }
+    - {excutable: exp-select-distinct-naive         , inputOne: 2035.581      , inputTwo: 2054.679        , inputThree: 2039.934        }
+    - {excutable: exp-select-distinct-naive         , inputOne: 4145.676      , inputTwo: 4104.774        , inputThree: 4044.801        }
+  - optimized:
+    - {excutable: exp-select-distinct-opt           , inputOne: 7.611         , inputTwo: 7.733           , inputThree: 7.850           }
+    - {excutable: exp-select-distinct-opt           , inputOne: 10.36         , inputTwo: 10.56           , inputThree: 10.673          }
+    - {excutable: exp-select-distinct-opt           , inputOne: 14.007        , inputTwo: 14.286          , inputThree: 14.142          }
+    - {excutable: exp-select-distinct-opt           , inputOne: 18.071        , inputTwo: 18.016          , inputThree: 18.156          }
+    - {excutable: exp-select-distinct-opt           , inputOne: 22.965        , inputTwo: 22.103          , inputThree: 22.986          }
+    - {excutable: exp-select-distinct-opt           , inputOne: 28.114        , inputTwo: 27.034          , inputThree: 27.772          }
+    - {excutable: exp-select-distinct-opt           , inputOne: 35.081        , inputTwo: 33.431          , inputThree: 33.465          }
+    - {excutable: exp-select-distinct-opt           , inputOne: 43.946        , inputTwo: 44.666          , inputThree: 45.505          }
+    - {excutable: exp-select-distinct-opt           , inputOne: 52.434        , inputTwo: 53.054          , inputThree: 54.165          }
+    - {excutable: exp-select-distinct-opt           , inputOne: 76.251        , inputTwo: 74.113          , inputThree: 75.478          }
+    - {excutable: exp-select-distinct-opt           , inputOne: 181.586       , inputTwo: 172.941         , inputThree: 175.449         }
+    - {excutable: exp-select-distinct-opt           , inputOne: 262.996       , inputTwo: 218.853         , inputThree: 216.371         }
+    - {excutable: exp-select-distinct-opt           , inputOne: 353.48        , inputTwo: 310.908         , inputThree: 313.661         }
+    - {excutable: exp-select-distinct-opt           , inputOne: 663.086       , inputTwo: 470.421         , inputThree: 478.093         }

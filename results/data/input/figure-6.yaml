@@ -1,0 +1,41 @@
+---
+experimentName: "Baseline Vs Optimized"
+experimentTag: figure-6
+iterationsNumber: 3
+serverLocations:
+    - us-east-2
+    - us-east-2
+    - us-east-2
+verticalAxisTags:
+    - "comorbidity"
+    - "RC. Diff"
+    - "Aspirin"
+    - "Pwd"
+    - "Credit"
+    - "TPC-H Q4"
+    - "TPC-H Q6"
+    - "TPC-H Q13"
+experiments:
+    - baseline:
+        - {excutable: exp-q1              , inputOne: 1024        , inputTwo: 1024          , inputThree:           }
+        - {excutable: exp-q2              , inputOne: 1024        , inputTwo:               , inputThree:           }
+        - {excutable: exp-q3              , inputOne: 1024        , inputTwo: 1024          , inputThree: 256       }
+        - {excutable: exp-qpwd            , inputOne: 1024        , inputTwo: 1024          , inputThree:           }
+        - {excutable: exp-qcredit         , inputOne: 1024        , inputTwo: 1024          , inputThree:           }
+        - {excutable: exp-tpch-q4         , inputOne: 256         , inputTwo: 1024          , inputThree: 256       }
+        - {excutable: exp-tpch-q6         , inputOne: 1024        , inputTwo:               , inputThree:           }
+        - {excutable: exp-tpch-q13        , inputOne: 128         , inputTwo: 1024          , inputThree: 128       }
+    - optimized:
+        - {excutable: exp-q1-baseline               , inputOne: 1024        , inputTwo: 1024          , inputThree: 256       }
+        - {excutable: exp-q2-baseline               , inputOne: 1024        , inputTwo:               , inputThree:           }
+        - {excutable: exp-q3-baseline               , inputOne: 1024        , inputTwo: 1024          , inputThree: 256       }
+        - {excutable: exp-qpwd-baseline             , inputOne: 1024        , inputTwo: 1024          , inputThree:           }
+        - {excutable: exp-qcredit-baseline          , inputOne: 1024        , inputTwo: 1024          , inputThree:           }
+        - {excutable: exp-tpch-q4-baseline          , inputOne: 256         , inputTwo: 1024          , inputThree: 256       }
+        - {excutable: exp-tpch-q6-baseline          , inputOne: 1024        , inputTwo:               , inputThree:           }
+        - {excutable: exp-tpch-q13-baseline         , inputOne: 128         , inputTwo: 1024          , inputThree: 128       }
+
+
+
+
+

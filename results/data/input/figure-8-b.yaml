@@ -1,0 +1,25 @@
+---
+experimentName: "sort"
+experimentTag: figure-8-b
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 65536  
+  - 131072  
+  - 262144  
+  - 524288  
+  - 1048576  
+  - 2097152  
+  - 4194304  
+experiments:
+  - sort:
+    - {excutable: exp-order-by      , inputOne: 65536       , inputTwo: 1             , inputThree: 1         }
+    - {excutable: exp-order-by      , inputOne: 131072      , inputTwo: 1             , inputThree: 1         }
+    - {excutable: exp-order-by      , inputOne: 262144      , inputTwo: 1             , inputThree: 1         }
+    - {excutable: exp-order-by      , inputOne: 524288      , inputTwo: 1             , inputThree: 1         }
+    - {excutable: exp-order-by      , inputOne: 1048576     , inputTwo: 1             , inputThree: 1         }
+    - {excutable: exp-order-by      , inputOne: 2097152     , inputTwo: 1             , inputThree: 1         }
+    - {excutable: exp-order-by      , inputOne: 4194304     , inputTwo: 1             , inputThree: 1         }

@@ -1,0 +1,40 @@
+---
+experimentName: "groupby join"
+experimentTag: figure-9-b
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 32   
+  - 64   
+  - 128  
+  - 256  
+  - 512  
+  - 1024 
+  - 2048 
+  - 4096 
+  - 8192 
+  - 16384
+  - 32768
+experiments:
+  - baseline:
+    - {excutable: exp-group-by-join-naive       , inputOne: 32          , inputTwo: 32            , inputThree: 16        }
+    - {excutable: exp-group-by-join-naive       , inputOne: 64          , inputTwo: 64            , inputThree: 32        }
+    - {excutable: exp-group-by-join-naive       , inputOne: 128         , inputTwo: 128           , inputThree: 64        }
+    - {excutable: exp-group-by-join-naive       , inputOne: 256         , inputTwo: 256           , inputThree: 128       }
+    - {excutable: exp-group-by-join-naive       , inputOne: 512         , inputTwo: 512           , inputThree: 256       }
+    - {excutable: exp-group-by-join-naive       , inputOne: 1024        , inputTwo: 1024          , inputThree: 512       }
+  - optimized:
+    - {excutable: exp-group-by-join-opt         , inputOne: 32          , inputTwo: 32            , inputThree: 16        }
+    - {excutable: exp-group-by-join-opt         , inputOne: 64          , inputTwo: 64            , inputThree: 32        }
+    - {excutable: exp-group-by-join-opt         , inputOne: 128         , inputTwo: 128           , inputThree: 64        }
+    - {excutable: exp-group-by-join-opt         , inputOne: 256         , inputTwo: 256           , inputThree: 128       }
+    - {excutable: exp-group-by-join-opt         , inputOne: 512         , inputTwo: 512           , inputThree: 256       }
+    - {excutable: exp-group-by-join-opt         , inputOne: 1024        , inputTwo: 1024          , inputThree: 512       }
+    - {excutable: exp-group-by-join-opt         , inputOne: 2048        , inputTwo: 2048          , inputThree: 1024      }
+    - {excutable: exp-group-by-join-opt         , inputOne: 4096        , inputTwo: 4096          , inputThree: 2048      }
+    - {excutable: exp-group-by-join-opt         , inputOne: 8192        , inputTwo: 8192          , inputThree: 4096      }
+    - {excutable: exp-group-by-join-opt         , inputOne: 16384       , inputTwo: 16384         , inputThree: 8192      }
+    - {excutable: exp-group-by-join-opt         , inputOne: 32768       , inputTwo: 32768         , inputThree: 16384     }

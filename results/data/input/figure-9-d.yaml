@@ -1,0 +1,27 @@
+---
+experimentName: "group by"
+experimentTag: figure-9-d
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 128    
+  - 1024   
+  - 8192   
+  - 131072 
+  - 1048576
+experiments:
+  - baseline:
+    - {excutable: exp-group-by-baseline             , inputOne: 128         , inputTwo: 64            , inputThree:           }
+    - {excutable: exp-group-by-baseline             , inputOne: 1024        , inputTwo: 512           , inputThree:           }
+    - {excutable: exp-group-by-baseline             , inputOne: 8192        , inputTwo: 4096          , inputThree:           }
+    - {excutable: exp-group-by-baseline             , inputOne: 131072      , inputTwo: 65536         , inputThree:           }
+    - {excutable: exp-group-by-baseline             , inputOne: 1048576     , inputTwo: 524288        , inputThree:           }
+  - optimized:
+    - {excutable: exp-group-by                      , inputOne: 128         , inputTwo: 64            , inputThree:           }
+    - {excutable: exp-group-by                      , inputOne: 1024        , inputTwo: 512           , inputThree:           }
+    - {excutable: exp-group-by                      , inputOne: 8192        , inputTwo: 4096          , inputThree:           }
+    - {excutable: exp-group-by                      , inputOne: 131072      , inputTwo: 65536         , inputThree:           }
+    - {excutable: exp-group-by                      , inputOne: 1048576     , inputTwo: 524288        , inputThree:           }

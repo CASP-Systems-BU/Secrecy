@@ -1,0 +1,11 @@
+---
+# Packages needed for Ubuntu systems to support MPC
+required_packages:
+  - make
+  - gcc
+  - mpich
+  - libsodium-dev
+  - openssh-server
+  - scorep
+  - libz-dev
+...

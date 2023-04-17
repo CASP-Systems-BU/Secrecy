@@ -1,0 +1,36 @@
+---
+experimentName: "sort - WAN"
+experimentTag: figure-8-b
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 65536  
+  - 131072  
+  - 262144  
+  - 524288  
+  - 1048576  
+  - 2097152  
+  - 4194304 
+  - 8388608 
+experiments:
+  - EMP:
+    - {excutable: emp               , inputOne: 599.665       , inputTwo: 594.263             , inputThree: 568.889           }
+    - {excutable: emp               , inputOne: 1303.18       , inputTwo: 1326.37             , inputThree: 1334.13           }
+    - {excutable: emp               , inputOne: 3045.61       , inputTwo: 2985.81             , inputThree: 2882.66           }
+    - {excutable: emp               , inputOne: 6633.44       , inputTwo: 6530.66             , inputThree: 6776.5            }
+    # the second two points are artificial
+    - {excutable: emp               , inputOne: 14630.3       , inputTwo: 14630.3             , inputThree: 14630.3           }
+    - {excutable: emp               , inputOne: 31557.4       , inputTwo: 32274               , inputThree: 32746.8           }
+    # - {excutable: emp               , inputOne: 0             , inputTwo: 0                   , inputThree: 0                 }
+  - Secrecy:
+    - {excutable: exp-order-by      , inputOne: 81.784       , inputTwo: 81.53                , inputThree: 81.529           }
+    - {excutable: exp-order-by      , inputOne: 98.768       , inputTwo: 94.907               , inputThree: 98.591           }
+    - {excutable: exp-order-by      , inputOne: 153.713      , inputTwo: 153.399              , inputThree: 153.755          }
+    - {excutable: exp-order-by      , inputOne: 300.828      , inputTwo: 300.828              , inputThree: 296.087          }
+    - {excutable: exp-order-by      , inputOne: 554.030      , inputTwo: 568.666              , inputThree: 574.309          }
+    - {excutable: exp-order-by      , inputOne: 1188.829     , inputTwo: 1188.829             , inputThree: 1200.236         }
+    - {excutable: exp-order-by      , inputOne: 2557.853     , inputTwo: 2557.853             , inputThree: 2539.707         }
+    - {excutable: exp-order-by      , inputOne: 5580.466     , inputTwo: 5525.993             , inputThree: 5529.037         }

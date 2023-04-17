@@ -1,0 +1,34 @@
+---
+experimentName: "Join (WAN)"
+experimentTag: figure-11-a-WAN
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 1000    
+  - 10000   
+  - 100000  
+  - 1000000 
+  - 10000000
+experiments:
+  - Addition:
+    - {excutable: exp-rca       , inputOne: 1.581           , inputTwo: 1.638               , inputThree: 1.628           }
+    - {excutable: exp-rca       , inputOne: 4.502           , inputTwo: 4.496               , inputThree: 4.332           }
+    - {excutable: exp-rca       , inputOne: 9.109           , inputTwo: 9.065               , inputThree: 9.056           }
+    - {excutable: exp-rca       , inputOne: 69.922          , inputTwo: 67.510              , inputThree: 67.387          }
+    - {excutable: exp-rca       , inputOne: 679.978         , inputTwo: 664.484             , inputThree: 673.833         }
+  - Equality:
+    - {excutable: exp-equality  , inputOne: 0.345           , inputTwo: 0.352               , inputThree: 0.341           }
+    - {excutable: exp-equality  , inputOne: 0.602           , inputTwo: 0.552               , inputThree: 0.713           }
+    - {excutable: exp-equality  , inputOne: 1.008           , inputTwo: 0.904               , inputThree: 1.035           }
+    - {excutable: exp-equality  , inputOne: 3.500           , inputTwo: 3.329               , inputThree: 3.582           }
+    - {excutable: exp-equality  , inputOne: 28.468          , inputTwo: 28.683              , inputThree: 28.800          }
+  - Inequality:
+    - {excutable: exp-greater   , inputOne: 0.366           , inputTwo: 0.368               , inputThree: 0.372           }
+    - {excutable: exp-greater   , inputOne: 0.667           , inputTwo: 0.726               , inputThree: 0.755           }
+    - {excutable: exp-greater   , inputOne: 1.092           , inputTwo: 1.234               , inputThree: 1.070           }
+    - {excutable: exp-greater   , inputOne: 4.809           , inputTwo: 4.557               , inputThree: 4.648           }
+    - {excutable: exp-greater   , inputOne: 39.554          , inputTwo: 39.437              , inputThree: 39.564          }
+  

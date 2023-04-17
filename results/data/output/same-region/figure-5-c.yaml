@@ -1,0 +1,54 @@
+---
+experimentName: "select distinct"
+experimentTag: figure-9-c
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 32   
+  - 64   
+  - 128  
+  - 256  
+  - 512  
+  - 1024 
+  - 2048 
+  - 4096 
+  - 8192 
+  - 16384
+  - 32768
+  - 65536 
+  - 131072
+  - 262144
+experiments:
+  - baseline:
+    - {excutable: exp-select-distinct-naive         , inputOne: 0.036         , inputTwo: 0.038           , inputThree: 0.035           }
+    - {excutable: exp-select-distinct-naive         , inputOne: 0.065         , inputTwo: 0.066           , inputThree: 0.066           }
+    - {excutable: exp-select-distinct-naive         , inputOne: 0.121         , inputTwo: 0.122           , inputThree: 0.125           }
+    - {excutable: exp-select-distinct-naive         , inputOne: 0.241         , inputTwo: 0.239           , inputThree: 0.232           }
+    - {excutable: exp-select-distinct-naive         , inputOne: 0.445         , inputTwo: 0.468           , inputThree: 0.465           }
+    - {excutable: exp-select-distinct-naive         , inputOne: 0.912         , inputTwo: 0.917           , inputThree: 0.915           }
+    - {excutable: exp-select-distinct-naive         , inputOne: 1.827         , inputTwo: 1.835           , inputThree: 1.831           }
+    - {excutable: exp-select-distinct-naive         , inputOne: 3.650         , inputTwo: 3.665           , inputThree: 3.736           }
+    - {excutable: exp-select-distinct-naive         , inputOne: 7.239         , inputTwo: 7.242           , inputThree: 7.370           }
+    - {excutable: exp-select-distinct-naive         , inputOne: 14.792        , inputTwo: 14.933          , inputThree: 14.932          }
+    - {excutable: exp-select-distinct-naive         , inputOne: 29.543        , inputTwo: 30.093          , inputThree: 30.725          }
+    - {excutable: exp-select-distinct-naive         , inputOne: 61.195        , inputTwo: 60.483          , inputThree: 60.521          }
+    - {excutable: exp-select-distinct-naive         , inputOne: 125.100       , inputTwo: 126.711         , inputThree: 125.326         }
+    - {excutable: exp-select-distinct-naive         , inputOne: 259.046       , inputTwo: 250.419         , inputThree: 258.056         }
+  - optimized:
+    - {excutable: exp-select-distinct-opt           , inputOne: 0.028          , inputTwo: 0.031           , inputThree: 0.028           }
+    - {excutable: exp-select-distinct-opt           , inputOne: 0.040          , inputTwo: 0.039           , inputThree: 0.042           }
+    - {excutable: exp-select-distinct-opt           , inputOne: 0.059          , inputTwo: 0.061           , inputThree: 0.060           }
+    - {excutable: exp-select-distinct-opt           , inputOne: 0.095          , inputTwo: 0.097           , inputThree: 0.096           }
+    - {excutable: exp-select-distinct-opt           , inputOne: 0.162          , inputTwo: 0.165           , inputThree: 0.159           }
+    - {excutable: exp-select-distinct-opt           , inputOne: 0.289          , inputTwo: 0.289           , inputThree: 0.290           }
+    - {excutable: exp-select-distinct-opt           , inputOne: 0.565          , inputTwo: 0.577           , inputThree: 0.568           }
+    - {excutable: exp-select-distinct-opt           , inputOne: 1.178          , inputTwo: 1.189           , inputThree: 1.184           }
+    - {excutable: exp-select-distinct-opt           , inputOne: 2.522          , inputTwo: 2.580           , inputThree: 2.529           }
+    - {excutable: exp-select-distinct-opt           , inputOne: 5.564          , inputTwo: 5.596           , inputThree: 5.632           }
+    - {excutable: exp-select-distinct-opt           , inputOne: 12.628         , inputTwo: 12.652          , inputThree: 12.747          }
+    - {excutable: exp-select-distinct-opt           , inputOne: 27.866         , inputTwo: 27.912          , inputThree: 27.732          }
+    - {excutable: exp-select-distinct-opt           , inputOne: 62.056         , inputTwo: 61.692          , inputThree: 62.128          }
+    - {excutable: exp-select-distinct-opt           , inputOne: 137.125        , inputTwo: 136.741         , inputThree: 139.057         }

@@ -1,0 +1,30 @@
+---
+experimentName: "Join"
+experimentTag: figure-10-b
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 10000 
+  - 20000 
+  - 30000 
+  - 40000 
+  - 60000 
+  - 80000 
+  - 100000
+experiments:
+  - equijoin:
+    - {excutable: exp-join-batched  , inputOne: 10000       , inputTwo: 10000         , inputThree: 10000     }
+    - {excutable: exp-join-batched  , inputOne: 20000       , inputTwo: 20000         , inputThree: 10000     }
+    - {excutable: exp-join-batched  , inputOne: 30000       , inputTwo: 30000         , inputThree: 10000     }
+    - {excutable: exp-join-batched  , inputOne: 40000       , inputTwo: 40000         , inputThree: 10000     }
+    - {excutable: exp-join-batched  , inputOne: 60000       , inputTwo: 60000         , inputThree: 10000     }
+    - {excutable: exp-join-batched  , inputOne: 80000       , inputTwo: 80000         , inputThree: 10000     }
+    - {excutable: exp-join-batched  , inputOne: 100000      , inputTwo: 100000        , inputThree: 10000     }
+  - rangejoin:
+    - {excutable: exp-geq-join      , inputOne: 10000       , inputTwo: 10000         , inputThree: 10000     }
+    - {excutable: exp-geq-join      , inputOne: 20000       , inputTwo: 20000         , inputThree: 10000     }
+    - {excutable: exp-geq-join      , inputOne: 30000       , inputTwo: 30000         , inputThree: 10000     }
+    - {excutable: exp-geq-join      , inputOne: 40000       , inputTwo: 40000         , inputThree: 10000     }

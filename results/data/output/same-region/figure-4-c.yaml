@@ -1,0 +1,33 @@
+---
+experimentName: "Category C"
+experimentTag: figure-7-c
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 1024 
+  - 4096 
+  - 8192 
+  - 16384
+  - 32768
+experiments:
+  - Aspirin Count:
+    - {excutable: exp-q3            , inputOne: 5.966             , inputTwo: 5.925           , inputThree: 5.809       }
+    - {excutable: exp-q3            , inputOne: 80.334            , inputTwo: 81.605          , inputThree: 80.278      }
+    - {excutable: exp-q3            , inputOne: 313.713           , inputTwo: 314.326         , inputThree: 316.413     }
+    - {excutable: exp-q3            , inputOne: 1241.051          , inputTwo: 1245.455        , inputThree: 1242.676    }
+    - {excutable: exp-q3            , inputOne: 4931.163          , inputTwo: 4931.432        , inputThree: 4944.281    }
+  - TPC-H Q4:
+    - {excutable: exp-tpch-q4       , inputOne: 12.328          , inputTwo: 12               , inputThree: 12.009       }
+    - {excutable: exp-tpch-q4       , inputOne: 192.741         , inputTwo: 192.529          , inputThree: 191.62       }
+    - {excutable: exp-tpch-q4       , inputOne: 773.713         , inputTwo: 773.92           , inputThree: 763.701      }
+    - {excutable: exp-tpch-q4       , inputOne: 3172.171        , inputTwo: 3151.339         , inputThree: 3132.547     }
+    - {excutable: exp-tpch-q4       , inputOne: 12439.944       , inputTwo: 12430.153        , inputThree: 12456.098    }
+  - TPC-H Q13:
+    - {excutable: exp-tpch-q13      , inputOne: 23.755          , inputTwo: 23.728          , inputThree: 23.636        }
+    - {excutable: exp-tpch-q13      , inputOne: 370.58          , inputTwo: 370.715         , inputThree: 370.524       }
+    - {excutable: exp-tpch-q13      , inputOne: 1478.463        , inputTwo: 1484.728        , inputThree: 1477.034      }
+    - {excutable: exp-tpch-q13      , inputOne: 5998.537        , inputTwo: 5903.068        , inputThree: 5912.98       }
+    - {excutable: exp-tpch-q13      , inputOne: 23625.089       , inputTwo: 23617.223       , inputThree: 23599.701     }

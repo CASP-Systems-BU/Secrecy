@@ -1,0 +1,5 @@
+SELECT count(DISTINCT d.pid)
+FROM diagnosis as d JOIN medication as m ON d.pid = m.pid
+WHERE d.diag = 0
+    AND m.med = 1
+    AND d.visit_time <= m.visit_time

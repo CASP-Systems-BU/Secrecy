@@ -1,0 +1,33 @@
+---
+experimentName: "Join"
+experimentTag: figure-10-b
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 10000 
+  - 20000 
+  - 30000 
+  - 40000 
+  - 60000 
+  - 80000 
+  - 100000
+experiments:
+  - equijoin:
+    - {excutable: exp-join-batched  , inputOne: 135.540         , inputTwo: 134.777           , inputThree: 134.888       }
+    - {excutable: exp-join-batched  , inputOne: 541.761         , inputTwo: 538.190           , inputThree: 538.302       }
+    - {excutable: exp-join-batched  , inputOne: 1217.501        , inputTwo: 1217.003          , inputThree: 1211.075      }
+    - {excutable: exp-join-batched  , inputOne: 2154.372        , inputTwo: 2157.222          , inputThree: 2149.666      }
+    - {excutable: exp-join-batched  , inputOne: 4841.605        , inputTwo: 4837.099          , inputThree: 4834.781      }
+    - {excutable: exp-join-batched  , inputOne: 8594.524        , inputTwo: 8591.510          , inputThree: 8595.106      }
+    - {excutable: exp-join-batched  , inputOne: 13459.128       , inputTwo: 13440.473         , inputThree: 13449.687     }
+  - rangejoin:
+    - {excutable: exp-geq-join      , inputOne: 170.599         , inputTwo: 170.599         , inputThree: 170.599         }
+    - {excutable: exp-geq-join      , inputOne: 675.234         , inputTwo: 675.234         , inputThree: 675.234         }
+    - {excutable: exp-geq-join      , inputOne: 1522.848        , inputTwo: 1522.848        , inputThree: 1522.848        }
+    - {excutable: exp-geq-join      , inputOne: 2690.649        , inputTwo: 2690.649        , inputThree: 2690.649        }
+    - {excutable: exp-geq-join      , inputOne: 6089.612        , inputTwo: 6089.612        , inputThree: 6089.612        }
+    - {excutable: exp-geq-join      , inputOne: 10878.288       , inputTwo: 10878.288       , inputThree: 10878.288       }
+    - {excutable: exp-geq-join      , inputOne: 17171.658       , inputTwo: 17171.658       , inputThree: 17171.658       }

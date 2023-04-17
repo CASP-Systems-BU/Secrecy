@@ -1,0 +1,9 @@
+WITH rcd AS (
+     SELECT pid, visit_time, row_no
+     FROM diagnosis
+     WHERE diag='cdiff')
+SELECT DISTINCT r1.pid
+FROM rcd r1 JOIN rcd r2 ON r1.pid = r2.pid
+WHERE r2.visit_time - r1.visit_time >= '15 DAYS'
+    AND r2.visit_time - r1.visit_time <= '56 DAYS'
+    AND r2.row_no = r1.row_no + 1

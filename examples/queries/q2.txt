@@ -1,0 +1,4 @@
+SELECT R.ak , COUNT(*)
+FROM R, S
+WHERE R.id = S.id
+GROUP BY R.ak

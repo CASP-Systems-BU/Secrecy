@@ -1,0 +1,37 @@
+---
+experimentName: "Category C"
+experimentTag: figure-7-c
+iterationsNumber: 3
+serverLocations:
+  - us-east-2
+  - us-east-2
+  - us-east-2
+verticalAxisTags:
+  - 1024 
+  - 2048
+  - 4096 
+  - 8192 
+  - 16384
+  # - 32768
+experiments:
+  - Aspirin Count:
+    - {excutable: exp-q3            , inputOne: 100.128           , inputTwo: 98.928           , inputThree: 96.712       }
+    - {excutable: exp-q3            , inputOne: 144.105           , inputTwo: 147.580          , inputThree: 145.173      }
+    - {excutable: exp-q3            , inputOne: 293.898           , inputTwo: 296.700          , inputThree: 292.765      }
+    - {excutable: exp-q3            , inputOne: 807.982           , inputTwo: 818.831          , inputThree: 809.984      }
+    - {excutable: exp-q3            , inputOne: 2819.571          , inputTwo: 2830.533         , inputThree: 2754.920     }
+    # - {excutable: exp-q3            , inputOne: 10931.765         , inputTwo: 10724.247        , inputThree: 10714.010    }
+  - TPC-H Q4:
+    - {excutable: exp-tpch-q4       , inputOne: 44.057            , inputTwo: 43.333            , inputThree: 43.563      }
+    - {excutable: exp-tpch-q4       , inputOne: 144.349           , inputTwo: 137.198           , inputThree: 139.974     }
+    - {excutable: exp-tpch-q4       , inputOne: 533.007           , inputTwo: 525.753           , inputThree: 536.021     }
+    - {excutable: exp-tpch-q4       , inputOne: 2181.959          , inputTwo: 2192.408          , inputThree: 2150.590    }
+    - {excutable: exp-tpch-q4       , inputOne: 8697.199          , inputTwo: 8673.618          , inputThree: 8682.295    }
+    # - {excutable: exp-tpch-q4       , inputOne: 000000000         , inputTwo: 000000000         , inputThree: 000000000    }
+  - TPC-H Q13:
+    - {excutable: exp-tpch-q13      , inputOne: 99.722          , inputTwo: 100.808         , inputThree: 98.402        }
+    - {excutable: exp-tpch-q13      , inputOne: 236.559         , inputTwo: 237.543         , inputThree: 238.557       }
+    - {excutable: exp-tpch-q13      , inputOne: 760.430         , inputTwo: 753.698         , inputThree: 752.657       }
+    - {excutable: exp-tpch-q13      , inputOne: 2816.007        , inputTwo: 2804.678        , inputThree: 2804.484      }
+    - {excutable: exp-tpch-q13      , inputOne: 11098.511       , inputTwo: 11098.511       , inputThree: 11098.511     }
+    # - {excutable: exp-tpch-q13      , inputOne: 000000000       , inputTwo: 000000000       , inputThree: 000000000     }
