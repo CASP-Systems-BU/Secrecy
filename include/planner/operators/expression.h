@@ -6,6 +6,9 @@
 #include <map>
 #include <set>
 #include <iostream>
+#include <algorithm>
+#include <memory>
+#include <cassert>
 
 /***
  * A Secrecy expression.
