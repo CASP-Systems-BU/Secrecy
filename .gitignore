@@ -1,0 +1,19 @@
+.env
+*.png
+
+# local files
+notes
+
+# editors config directories
+.idea
+.vscode
+
+# Build directories
+cmake-*
+build-dir
+build
+
+# Excluding external libraries
+!src/external-lib
+src/external-lib/*
+!src/external-lib/CMakeLists.txt
