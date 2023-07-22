@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # rm -rf build
-mkdir build
+mkdir -p build
 cd build
 cmake ..
 make -j1
 
 MPIRUN="mpirun -np"
 PARTIES=3
-dirlist=`ls test_*.out`
+dirlist=`ls test_*`
 
 for test in ${dirlist}
 do
