@@ -1,0 +1,188 @@
+- name: test aws connection
+  hosts: localhost
+  tasks:
+
+  ### async this and start up all machines at same time.
+  - name: start an instance with a public IP address
+    community.aws.ec2_instance:
+      name: "{{item.name}}"
+      key_name: "secrecy-server-key"
+      availability_zone: "{{item.region}}"
+      region: "{{item.region}}"
+      instance_type: "{{item.instance_type}}"
+      security_group: default
+      network:
+        assign_public_ip: true
+      image_id: "{{item.image_id}}"
+      tags:
+        Environment: Testing
+      volumes:
+      - device_name: /dev/sda1
+        ebs:
+          volume_size: 16
+          delete_on_termination: true
+    register: machine_sleepers
+    async: 600
+    poll: 0
+    loop: "{{ machine_json | list }}"
+
+  ### Wait for machines to be initialized
+  - name: Wait for machine provisioning complete
+    async_status:
+      jid: "{{item.ansible_job_id}}"
+    register: status
+    until: status.finished
+    retries: 60
+    delay: 10
+    loop: "{{machine_sleepers.results | list}}"
+
+  - name: Collecting machines information
+    community.aws.ec2_instance:
+      name: "{{item.name}}"
+      region: "{{item.region}}"
+      image_id: "{{item.image_id}}"
+    register: machine_information
+    loop: "{{ machine_json | list  }}"
+
+  - name: Add machines to host
+    add_host:
+      name: "{{item.instances[0]['public_ip_address']}}"
+      groups: 
+        - machine_{{ind+1}}_host
+        - cluster
+    loop: "{{machine_information.results | list}}"
+    loop_control:
+      index_var: ind
+
+  - name: Delete old hosts file
+    file:
+      path: ../common/hosts_file
+      state: absent
+
+  - name: Create new hosts file template
+    copy:
+      src: ../common/hosts_file_temp
+      dest: ../common/hosts_file
+    become: yes
+  
+  - name: Add to hosts file
+    lineinfile:
+      path: ../common/hosts_file
+      line: "{{item.instances[0]['public_ip_address']}} machine-{{ind+1}}"
+      create: yes
+    loop: "{{machine_information.results | list}}"
+    loop_control:
+      index_var: ind
+
+
+- name: Start prepping machines
+  hosts: cluster
+  tasks:
+  - name: Add StrictHostKeyChecking=no to ssh config
+    copy:
+      src: ../common/config
+      dest: ~/.ssh/config
+      owner: ubuntu
+      mode: u=rw,g=r,o=r
+
+  - name: Add hosts file to cluster
+    copy:
+      src: ../common/hosts_file
+      dest: /etc/hosts
+    become: yes
+  
+  # built in ansible git doesn't auto use the machine's ssh to download.
+  # This is a simpler workaround.
+  - name: Download code base from git
+    git: 
+      repo: https://github.com/CASP-Systems-BU/secrecy.git
+      dest: ~/secrecy
+    retries: 3
+    delay: 5
+  
+  - name: Creates external-lib directory
+    file:
+      path: ~/secrecy/include/external-lib
+      state: directory
+  
+  - name: Download sql parser from git
+    git: 
+      repo: https://github.com/mfaisal97/sql-parser
+      dest: ~/secrecy/include/external-lib/sql-parser
+    retries: 3
+    delay: 5
+
+###########
+    # The variables imported list all the packages to install
+  - name: Set OS distribution dependent variables
+    include_vars:
+      file: "../common/var_os_ubuntu.yaml"
+
+  - name: Add scorep repository from PPA and install its signing key on Ubuntu target
+    apt_repository:
+      repo: ppa:andreasgocht/scorep
+    become: yes
+
+  - name: Update apt caches
+    apt: update_cache=yes
+    become: yes
+
+  # Loop over the packages and install any that are missing
+  - name: Install "{{ required_package }}"
+    package:
+      name: "{{ required_packages }}"
+      state: present
+    become: yes
+    loop: "{{ required_packages }}"
+###########
+
+  - name: Creates cmake directory
+    file:
+      path: ~/secrecy/build
+      state: directory
+
+  - name: Prepare to make secrecy
+    shell: 'cmake ..'
+    args:
+      chdir: ~/secrecy/build
+
+  - name: Testing Secrecy Make
+    shell: 'make -j8 exp_equality'
+    args:
+      chdir: ~/secrecy/build
+
+- name: Change hostnames for machines
+  hosts: localhost
+  tasks:
+  - name: Change hostnames for machines
+    shell: 
+      ssh ubuntu@{{item.instances[0]['public_ip_address']}} "sudo hostnamectl set-hostname machine-{{ind+1}}"
+    loop: "{{machine_information.results | list}}"
+    loop_control:
+      index_var: ind
+
+- import_playbook: "{{exp_name}}"
+
+
+- name: Remove all instances
+  hosts: localhost
+  tasks:
+
+  - name: terminate machines
+    community.aws.ec2_instance:
+      region: "{{item['invocation']['module_args']['region']}}"
+      state: absent
+      instance_ids: "{{item.instances[0]['instance_id']}}"
+    async: 300
+    poll: 0
+    register: term_sleepers
+    loop: "{{machine_information.results | list}}"
+
+  - name: Wait for machine 1 to terminate
+    async_status:
+      jid: "{{item.ansible_job_id}}"
+    register: status
+    until: status.finished
+    retries: 30
+    delay: 20
+    loop: "{{term_sleepers.results | list}}"

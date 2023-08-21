@@ -11,10 +11,25 @@ We use a deployment machine to create the computing cluster and deploy Secrecy. 
 ` sudo apt install ansible python3-pip awscli`
 ` pip3 install boto3 `
 5. Update the `secrets.sh` script to reflect your AWS secrets.
-6. Run ` aws configure ` to add your secrets (or Run `./secrets.sh` to the AWS secerets). You need to do this step for each new terminal.
+
+## Adding an experiment 
+Check the experiment example under `experiments` directory
 
 ## Running an experiment
-We have two modes to run the experiments: same-region (LAN setup) and cross-region (WAN setup). You can run an existing experiment using either the script `run.yaml` in either directories as follows:
+We have two modes to run the experiments: same-region (LAN setup) and cross-region (WAN setup). You can run an existing experiment using the script `deploy.sh`:
 1. Make sure the AWS secrets are loaded as indicated in setup.
-2. modify the `experiment-examples.yaml` file to show the experiment to execute and its paramters.
-3. Run `ansible-playbook run.yaml` from the corresponding setup directory.
+2. Make sure you are in the `secrecy/deployment` directory.
+3. Run the `deploy.sh` script which has the following parameters:
+```
+# Assign the provided arguments to variables or use default values
+exp_name=${1}                       # Described by yaml file.
+run_name=${2}                       # Used as a prefix for the spawn machines.
+deploy_type=${3:-lan}               # Either `lan` or `wan`.
+machine_type=${4:-r5.xlarge}        # What type of AWS instance to use.
+mpi_type=${5:-openmpi}              # Either `openmpi` or `mpich`.
+machines_num=${6:-3}                # Number of machines in the MPI cluster.
+```
+For example, run from `secrecy/deployment`, the following command.
+```
+./deploy.sh experiment-example friday-run lan r5.xlarge openmpi
+```

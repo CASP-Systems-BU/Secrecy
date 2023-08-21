@@ -17,3 +17,6 @@ build
 !src/external-lib
 src/external-lib/*
 !src/external-lib/CMakeLists.txt
+
+
+deployment/results

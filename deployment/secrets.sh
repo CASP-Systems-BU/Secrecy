@@ -5,4 +5,4 @@ export AWS_SECRET_KEY="YOUR_SECRET_KEY"
 export ANSIBLE_HOST_KEY_CHECKING=False
 
 eval `ssh-agent`
-ssh-add PATH_TO_YOUR_SSH_KEY
+# ssh-add PATH_TO_YOUR_SSH_KEY

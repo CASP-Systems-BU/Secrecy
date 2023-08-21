@@ -1,0 +1,36 @@
+- name: Build executable
+  hosts: cluster
+  tasks:
+  - set_fact:
+      exp_name_: "exp_distinct"
+
+  - shell: 'make -j8 {{exp_name_}}'
+    args:
+      chdir: ~/secrecy/build
+
+- name: Running Secrecy on Node 1
+  hosts: machine_1_host
+  tasks:
+  - name: Run Secrecy Test
+    shell: |
+      mpirun --host machine-1,machine-2,machine-3 -np 3 ./{{exp_name_}} {{item}} >> {{exp_name_}}.txt
+      cat {{exp_name_}}.txt
+    args:
+      chdir: ~/secrecy/build
+    register: mpc_output
+    with_items:
+    - 32
+    - 64
+    - 128
+
+  - name: Print test results
+    debug: 
+      msg: '{{item.stdout}}'
+    loop: "{{mpc_output['results']}}"
+    loop_control:
+      label: " "
+
+  - name: Copy results file to local machine
+    fetch:
+      src: ~/secrecy/build/{{exp_name_}}.txt
+      dest: ../results
