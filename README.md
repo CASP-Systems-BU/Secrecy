@@ -106,8 +106,8 @@ To build and run Secrecy on linux, edit the provided `Makefile` as follows:
    - Build and run a test file:
       ```
       cd build
-      make test_planner_q1.out
-      mpirun -np 3 ./test_planner_q1.out [X] [X]  // Will compile and run Q1 with X rows per input
+      make planner
+      mpirun -np 3 ./planner ../examples/queries/q1.txt ../examples/schemas/q1_schema.txt 128 128  // Will compile and run Q1 with 128 and 128 rows per input tables
       ```
       
 ## License
